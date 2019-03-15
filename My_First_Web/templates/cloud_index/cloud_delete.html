@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+{% load tags %}
+
+{% block context %}
+    <div class="row" style="padding: 30px">
+        <p>亲爱的{{ request.session.user_name }}您确定要删除：</p>
+        <br>
+        <p>{{ file.file_name }}</p>
+        <a class = "btn btn-info">取消</a>
+        <a class="btn btn-danger">确定</a>
+    </div>
+
+{% endblock %}
+{% block bottom-js %}
+
+{% endblock %}

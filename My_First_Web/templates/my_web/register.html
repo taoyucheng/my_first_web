@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load tags %}
+{% block container-out %}
+    <div class="container" style="color: white;margin-bottom: 50px;">
+        <div class="col-md-4 col-md-offset-4">
+          <form class='form-register' action="/register/" method="post">{% csrf_token %}
+              <h2 class="text-center">欢迎注册</h2>
+              <span style="color: red;">{{ message }}</span>
+              {% for field in register_form %}
+                  {% build_register field as pwd %}
+                  {% if pwd %}
+                      <div class="form-group">
+                         {{ field.label_tag }}
+                          {{ field}}
+                      </div>
+                      <div class="form-group">
+                         <label >重复密码</label>
+                        <input type="text" name='password-repeat' class="form-control"  autofocus required>
+                      </div>
+
+                  {% else %}
+                      <div class="form-group">
+                          {{ field.label_tag }}
+                          {{ field}}
+                      </div>
+                  {% endif %}
+              {% endfor %}
+              <button type="reset" class="btn btn-default pull-left">重置</button>
+              <button type="submit" class="btn btn-primary pull-right">提交</button>
+          </form>
+        </div>
+    </div> <!-- /container -->
+{% endblock %}
+{% block bottom-js %}
+
+{% endblock %}

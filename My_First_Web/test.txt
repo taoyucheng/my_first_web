@@ -1,0 +1,875 @@
+<!DOCTYPE html>           
+
+<script>
+    (function (context) {
+        var data = {};
+        var url = '//imgstat.baidu.com/17.gif';
+        var start = +new Date;
+        var createQuery = function (data) {
+            var ret = [];
+            for (var key in data) {
+                ret.push(key + '=' + data[key]);
+            }
+            return ret.join('&');
+        };
+
+        var _mergeCommPara = function (data) {
+            data.etype = 'speed';
+            data.page = 'result';
+            data.logid = "11742685561238611231";
+            data.sid = '01204a962c274f3137c0700d43dc264c0c84b583';
+            data.wh = window.screen.width + 'x' + window.screen.height ;
+            data.sampid = '-1';
+            data.app = 'searchresult';
+            data.spat = 0 + '-' + '';
+            data.protocol = window.location.protocol.replace(':', '');
+            if ('0' - 0) {
+                data.ishttps = '0';
+            }
+            
+            data.sync = "";
+            return data;
+        };
+        var _profiles = {
+            'slider': {
+                _url: '//imgstat.baidu.com/17.gif',
+                etype: 'slide'
+            }
+        };
+        var speed = {
+            set: function (key, value) {
+                if (key) {
+                    data[key] = value || 0;
+                }
+            },
+            get: function (key) {
+                return data[key] || ('start' === key && start);
+            },
+            mark: function (key, value, ts) {
+                if (undefined === value) {
+                    value = new Date - start;
+                }
+                if (true === ts) {
+                    value = value - start;
+                }
+                data[key] = value;
+            },
+            send: function (ext) {
+                if (ext) {
+                    for (var key in ext) {
+                        data[key] = ext[key];
+                    }
+                }
+                _mergeCommPara(data);
+                var queryString = createQuery(data);
+                new Image().src = url + '?' + queryString;
+            },
+            loadmark: function () {
+                value = new Date - start;
+
+                if (speed.firstScCount) {
+                    speed.firstScCount += 1;
+                }else{
+                    speed.firstScCount = 1;
+                }
+
+                data['firstSc'] = value;
+
+            },
+            log: function (profile, data) {
+                var queryString = createQuery(data);
+                var pf = _profiles[profile];
+                var a = [];
+
+                _mergeCommPara(data);
+                for (var p in pf) {
+                    if (p.indexOf('_') !== 0) {
+                        data[p] = pf[p];
+                    }
+
+                }
+                for (var p in data) {
+                    a.push(p + '=' + data[p]);
+                }
+
+
+                (new Image).src = pf._url + '?' + a.join('&');
+            }
+        };
+        context.speed = speed;
+        speed.firstScCount = 0;
+        (function () {
+            window.logid = "11742685561238611231";
+            loaded = 0;
+            var addWindowEvent = window.addEventListener ?
+                function(type, fn) { window.addEventListener(type, fn, false); } :
+                function(type, fn) { window.attachEvent('on' + type, fn); };
+            addWindowEvent('beforeunload', function () {
+                if (!loaded) {
+                    speed.mark('leave');
+                    speed.send();
+                }
+            });
+
+            addWindowEvent('load', function () {
+                loaded = 1;
+            });
+        })();
+    })(window);
+</script>
+<script>
+    // ala进入打点
+    try {
+        if (!window._alaEnter) {
+            window._alaEnter = true;
+            function query2Json(query) {
+                var json = {};
+                var search = query.split("&");
+                for (var i = search.length - 1; i >= 0; i--) {
+                    var s = search[i].split('=');
+                    json[s[0]] = s[1];
+                }
+                return json;
+            }
+            var query = query2Json((location.search || '').replace('?', ''));
+            if (+query.hs && query.tn === 'baiduimage') {
+                var payload = 'dsp=pc&tn=result&hs=' + query.hs;
+                (new Image()).src = '//image.baidu.com/pv/pv.gif?' + payload + '&type=enter&t=' + (+new Date);
+                window._alaEnter = function (type) {
+                    (new Image()).src = '//image.baidu.com/pv/pv.gif?' + payload
+                        + '&type=' + type + '&t=' + (+new Date);
+                };
+                var sid = "c3437dbc7c1255d3a21d444d86ebf2e9234c22bd";
+                if (window.localStorage
+                    && window.localStorage.sid
+                    && window.localStorage.sid !== sid) {
+                    window._alaEnter('change');
+                }
+                window.localStorage.sid = sid;
+            }
+        }
+    } catch(e) {}
+</script>
+
+   <html>   <!--STATUS OK-->  <head>  
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<noscript>
+<meta http-equiv="refresh" content="0;url=/i?ct=201326592&lm=-1&tn=baiduimagenojs&ipn=rnj&pv=&word=%E5%88%98%E4%BA%A6%E8%8F%B2&z=0&pn=0&rn=20&cl=2&ie=utf-8">
+
+<style>table,.p{display:none}</style>
+
+</noscript>
+
+ <title>
+刘亦菲_百度图片搜索</title> <link rel="shortcut icon" href="https://www.baidu.com/cache/icon/favicon.ico" type="image/x-icon"> <link rel="icon" sizes="any" href="https://www.baidu.com/cache/icon/favicon.svg">  <script>
+    void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","/hunter/alog/alog.min.js","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:a,tti:a,page_ready:a}}();
+    void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>     
+   <script>
+        var Ihttps_agent_config = {"http:\/\/nssug.baidu.com":"https:\/\/sp1.baidu.com\/8qUZeT8a2gU2pMbgoY3K\/su","http:\/\/img.baidu.com":"https:\/\/gss2.bdstatic.com\/70cFsjip0QIZ8tyhnq","http:\/\/himg.bdimg.com":"https:\/\/ss1.bdstatic.com\/7Ls0a8Sm1A5BphGlnYG","http:\/\/apps.bdimg.com":"https:\/\/ss0.bdstatic.com\/9_QWf8Sm1A5BphGlnYG","http:\/\/f3.baidu.com":"https:\/\/sp3.baidu.com\/-uV1bjeh1BF3odCf","http:\/\/bzclk.baidu.com":"https:\/\/gsp0.baidu.com\/9q9JcDHa2gU2pMbgoY3K","http:\/\/img0.imgtn.bdimg.com":"https:\/\/ss0.bdstatic.com\/70cFvHSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img1.imgtn.bdimg.com":"https:\/\/ss1.bdstatic.com\/70cFvXSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img2.imgtn.bdimg.com":"https:\/\/ss2.bdstatic.com\/70cFvnSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img3.imgtn.bdimg.com":"https:\/\/ss3.bdstatic.com\/70cFv8Sh_Q1YnxGkpoWK1HF6hhy","http:\/\/img4.imgtn.bdimg.com":"https:\/\/ss0.bdstatic.com\/70cFuHSh_Q1YnxGkpoWK1HF6hhy","http:\/\/img5.imgtn.bdimg.com":"https:\/\/ss1.bdstatic.com\/70cFuXSh_Q1YnxGkpoWK1HF6hhy","http:\/\/bdimg.share.baidu.com":"https:\/\/gss0.baidu.com\/9rA4cT8aBw9FktbgoI7O1ygwehsv","http:\/\/dispatcher.video.qiyi.com":"https:\/\/gss0.bdstatic.com\/-LsZfDe52w9JkxG9m9iS_HFjgAkrreHg-_","http:\/\/passport.bdimg.com":"https:\/\/ss0.bdstatic.com\/5LMZfyabBhJ3otebn9fN2DJv"};
+    </script> <script type="text/javascript" src="//img0.bdstatic.com/static/common/mod_6f6741d.js"></script> 
+<script>
+    //记录页面开始时间
+    window.pageStartTime = new Date();
+    window.scrollTo(0, 0);
+    // 时效性热点
+    </script>
+ <link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/searchresult/pkg/result_a8c618c.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/common/pkg/co_2e2be3c.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/common/widget/ui/slider/slider_ecce195.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/common/widget/ui/userInfo/userInfo_5bd6198.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvFilterView/AvFilterView_5709328.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvMuiltSizeFilterView/AvMuiltSizeFilterView_5a57aa1.css"/><link rel="stylesheet" type="text/css" href="//img0.bdstatic.com/static/searchresult/widget/ui/base/view/AvTypeFilterView/AvTypeFilterView_cea6b92.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/searchresult/widget/ui/base/view/AvColorWallFilterView/AvColorWallFilterView_cf8a646.css"/><link rel="stylesheet" type="text/css" href="//img2.bdstatic.com/static/searchresult/widget/ui/base/view/AvColorFilterView/AvColorFilterView_5b1da63.css"/><link rel="stylesheet" type="text/css" href="//img1.bdstatic.com/static/searchresult/widget/pagelets/base/newImgfilter/newImgFilter_d87f4bc.css"/><link rel="stylesheet" type="text/css" href="//img2.bdstatic.com/static/common/widget/loginbar/loginbar_e8a6507.css"/></head>  <script> alog('speed.set', 'ht', +new Date); </script>  <body class=""> <script type="text/javascript">require.siteNS && require.siteNS(["searchresult", "common"]);require.resourceMap({"res":{"common:widget/ui/base/base.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/base/base_a66ce51.js"},"common:widget/ui/arch/router.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/arch/router_1670dcf.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/arch/app.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/arch/app_c1dac05.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/arch/router.js"]},"common:widget/ui/base/EventDispatcher.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/base/EventDispatcher_e71d337.js","pkg":"common:p1"},"common:widget/ui/base/events.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/base/events_f8b4e1f.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/EventDispatcher.js"]},"common:widget/ui/arch/behavior/pageresizer.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/arch/behavior/pageresizer_9f05f70.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/arch/localdb.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/arch/localdb_1fa8a65.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/arch/collection.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/arch/collection_8624f21.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/arch/localdb.js"]},"common:widget/ui/arch/handlers.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/arch/handlers_2d9d42f.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/events/events.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/events/events_87337df.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/EventDispatcher.js"]},"common:widget/ui/utils/scroller.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/utils/scroller_efc1f29.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/events/events.js"]},"common:widget/ui/utils/pageresizer.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/utils/pageresizer_9feba52.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/events/events.js"]},"common:widget/ui/utils/utils.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/utils/utils_bd26384.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/scroller.js","common:widget/ui/utils/pageresizer.js"]},"common:widget/ui/arch/history.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/arch/history_dbb6541.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/ui/base/events.js"]},"common:widget/ui/arch/model.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/arch/model_32910e4.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/arch/pagemodel.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/arch/pagemodel_8be1499.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/ui/base/events.js","common:widget/ui/arch/model.js"]},"common:widget/ui/base/subject.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/base/subject_7c3c6c3.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/EventEmitter/EventEmitter.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/EventEmitter/EventEmitter_655344a.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/monitorRequest/monitorRequest.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/monitorRequest/monitorRequest_cabcf84.js","pkg":"common:p1"},"common:widget/ui/searchUtils/searchUtils.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/searchUtils/searchUtils_17600ce.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/slider/slider.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/slider/slider_545c0c2.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/EventEmitter/EventEmitter.js"]},"common:widget/ui/statistic/statistic.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/statistic/statistic_09d1c4a.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/monitorRequest/monitorRequest.js","common:widget/ui/base/events.js","common:widget/ui/utils/utils.js"]},"common:widget/ui/suggest/data.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/suggest/data_89dc815.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/ui/base/events.js"]},"common:widget/ui/suggest/inputwatcher.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/suggest/inputwatcher_2eb7c40.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/suggest/suggestionlist.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/suggest/suggestionlist_37c79c7.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/suggest/suggestion.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/suggest/suggestion_1507f89.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js","common:widget/ui/suggest/data.js","common:widget/ui/suggest/inputwatcher.js","common:widget/ui/suggest/suggestionlist.js"]},"common:widget/ui/sugHistory/sugHistory.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/sugHistory/sugHistory_4277c60.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/statistic/statistic.js","common:widget/ui/utils/utils.js"]},"common:widget/ui/SugRec/SugRec.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/SugRec/SugRec_3755387.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/statistic/statistic.js"]},"common:widget/ui/swf/swf.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/swf/swf_b5294d0.js","pkg":"common:p1"},"common:widget/ui/userInfo/userInfo.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/userInfo/userInfo_4160d44.js","pkg":"common:p1","deps":["common:widget/ui/base/base.js","common:widget/ui/searchUtils/searchUtils.js","common:widget/ui/base/events.js","common:widget/ui/utils/utils.js"]},"common:widget/ui/feedback/feedback.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/feedback/feedback_4002381.js","pkg":"common:p1"},"common:widget/shitu/static/animate.js":{"url":"//img1.bdstatic.com/static/common/widget/shitu/static/animate_d5993fc.js","deps":["common:widget/ui/base/base.js"]},"common:widget/shitu/run.js":{"url":"//img0.bdstatic.com/static/common/widget/shitu/run_c4ee0ab.js","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js","common:widget/shitu/static/animate.js"]},"searchresult:widget/ui/app/noResultPage.js":{"url":"//img0.bdstatic.com/static/searchresult/widget/ui/app/noResultPage_aac2743.js","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/controls/relsearchBox/relsearchBox.js","common:widget/ui/userInfo/userInfo.js","searchresult:widget/ui/controls/hotwordBox/hotwordBox.js","searchresult:widget/ui/controls/suggBox/suggBox.js","searchresult:widget/ui/models/filtermodel.js","searchresult:widget/ui/statistic/statistic.js","common:widget/ui/utils/utils.js"]},"searchresult:widget/pagelets/base/topRs/topRs.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/pagelets/base/topRs/topRs_c41d15e.js","deps":["common:widget/ui/base/base.js","common:widget/ui/utils/utils.js"]},"common:widget/ui/historyRecord/historyRecord.js":{"url":"//img2.bdstatic.com/static/common/widget/ui/historyRecord/historyRecord_31e31e1.js","deps":["common:widget/ui/base/base.js","common:widget/ui/base/events.js"]},"common:widget/ui/loginBox/loginBox.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/loginBox/loginBox_ea459f5.js"},"common:widget/loginbar/loginbar.js":{"url":"//img2.bdstatic.com/static/common/widget/loginbar/loginbar_f08c999.js","deps":["common:widget/ui/base/base.js","common:widget/ui/loginBox/loginBox.js","common:widget/ui/base/EventDispatcher.js"]},"searchresult:widget/ui/action/star/imgcollectioin_setting.js":{"url":"//img2.bdstatic.com/static/searchresult/widget/ui/action/star/imgcollectioin_setting_56a1ada.js","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/utils/utils.js","searchresult:widget/ui/utils/lib.js"]},"searchresult:widget/ui/action/star/action.js":{"url":"//img1.bdstatic.com/static/searchresult/widget/ui/action/star/action_f9b44a1.js","deps":["common:widget/ui/base/base.js","searchresult:widget/ui/app/page.js","searchresult:widget/ui/collections/imgcollection.js","searchresult:widget/ui/strategy/imglayoutstrategy.js","searchresult:widget/ui/action/star/imgcollectioin_setting.js","searchresult:widget/ui/action/base/base.js","common:widget/ui/utils/utils.js"]},"common:widget/ui/fmCheck/fmCheck.js":{"url":"//img1.bdstatic.com/static/common/widget/ui/fmCheck/fmCheck_e6197fc.js","deps":["common:widget/ui/base/base.js"]},"common:widget/ui/durationStat/durationStat.js":{"url":"//img0.bdstatic.com/static/common/widget/ui/durationStat/durationStat_d292e9f.js","deps":["common:widget/ui/utils/utils.js","common:widget/ui/base/base.js"]}},"pkg":{"common:p1":{"url":"//img0.bdstatic.com/static/common/pkg/cores_b4aad57.js"}}});</script> 
+<div id="search" class="">
+<script>
+        (function() {
+            var search = document.getElementById('search');
+            var width = window.innerWidth
+                || (document.documentElement && document.documentElement.clientWidth)
+                || (document.body && document.body.clientWidth);
+            if (search && width < 1217) {
+                search.className = 'narrow ' + search.className;
+            }
+        })();
+    </script>
+<div class="s_search">
+<div id="imgSearchBox">
+<div id="imgMainSearch">
+<a href="/" class="s_logo">
+<img src="//img0.bdstatic.com/static/searchresult/img/logo-2X_32a8193.png" alt="到 百度图片首页 来" title="返回 百度图片首页">
+</a>
+<div class="s_nav">
+<form action="/search/index" class="searchform" name="f1" onsubmit="return s_submit(this,true)">
+<input type="hidden" name="tn" value="baiduimage">
+<input type="hidden" name="ipn" value="r">
+<input name="ct" type="hidden" value="201326592">
+<input name="cl" type="hidden" value="2">
+<input name="lm" type="hidden" value="-1">
+<input name="st" type="hidden" value="-1">
+<input name="fm" type="hidden" value="result">
+<input name="fr" type="hidden" value="">
+<input name="sf" type="hidden" value="1">
+<input name="fmq" type="hidden" value="">
+<input name="pv" type="hidden" value="">
+<input name="ic" type="hidden" value="0">
+<input name="nc" type="hidden" value="1">
+<input name="z" type="hidden" value="0">
+<input name="hd" type="hidden" value="0">
+<input name="latest" type="hidden" value="0">
+<input name="copyright" type="hidden" value="0">
+<input name="se" type="hidden" value="">
+<input name="showtab" type="hidden" value="0">
+<input name="fb" type="hidden" value="0">
+<input name="width" type="hidden" value="">
+<input name="height" type="hidden" value="">
+<input name="face" type="hidden" value="0">
+<input name="istype" type="hidden" value="2">
+<input name="ie" type="hidden" value="utf-8">
+<input name="ctd" type="hidden" value="">
+<span class="s_ipt_wr"><input id="kw" name="word" class="s_ipt" value="刘亦菲" autocomplete="off" onfocus="this.parentNode.className='s_ipt_wr active'" onblur="this.parentNode.className='s_ipt_wr'"/></span><span class="s_btn_wr"><input type="submit" class="s_btn" onmousedown="this.className='s_btn s_btn_h'" onmouseout="this.className='s_btn'"  value="百度一下"   /></span>
+</form><div id="stcontent" class="common-shitu"> <a class="sttb" hidefocus="true" id="sttb" href="javascript:void(0)" title="上传图片，搜索相关信息"> <img class="st_camera_off" src="//img1.bdstatic.com/static/common/widget/shitu/images/camera_new_off_a552294.png" width="20" height="20"> <img class="st_camera_on" src="//img2.bdstatic.com/static/common/widget/shitu/images/camera_new_on_4e3e250.png" width="20" height="20"> <div class="st_tips" id="stTipsBox">上传图片，搜索相关信息</div> <div class="st_tips_arrow_in" id="stTipArrowIn"></div> <div class="st_tips_arrow_out" id="stTipArrowOut"></div> </a> <div id="stsug" class="stsug" style="display:none"> <div id="sthead"><span>识图</span><img id="sthelp" width="13" height="13" src="//img2.bdstatic.com/static/common/widget/shitu/images/mark_b68ff2e.png" /></div> <div class="stf"> <form id="form2" target="_self" enctype="multipart/form-data" name="form2"> <a id="uploadImg" href="javascript:void(0)" data-nsclick="p=1811102&tn=index&event_type=shitu.search.click&pos=upload">本地上传<input type="file" name="image" id="stfile" size="2"></a> <div class="st_dragtg" id="dragtg" style="display:none;">提示：您也可以把图片拖到这里</div> <input id="shitu2" name="pos" value="" type="hidden"> <input name="uptype" value="upload_pc" type="hidden"> <input name="fm" value="index" type="hidden"> </form> <form id="form1" target="_self" enctype="multipart/form-data" method="get" name="form1"> <div id="sturl"> <span class="stuwr"> <input type="text" id="stuurl" placeholder="在此处粘贴图片网址" value="" autocomplete="off"  class="stuurl" name="objurl"> </span> <span class="stsb"> <input type="submit" id="sbobj" class="stsb2" onmousedown="this.className='stsb2 stsb3'" onmouseout="this.className='stsb2'" onmouseover="this.className='stsb2 stsb4'" value="识图一下"> </span> </div> <input name="filename" id="filename" value="" type="hidden"> <input name="rt" value="0" type="hidden"> <input name="rn" value="10" type="hidden"> <input id="stftn" name="ftn" value="wantu" type="hidden"> <input name="ct" value="1" type="hidden"> <input name="stt" value="0" type="hidden"> <input name="tn" value="shituresultpc" type="hidden"> <input id="shitu1" name="uptype" value="paste" type="hidden"> <input name="fm" value="index" type="hidden"> </form> </div> <div class="drag-text-tip" id="dttip">拖拽图片到此处试试</div> <div id="stmore" style="display:none;"> <div class="stmore-header">百度识图</div> <ul> <li>识别人物、搜索服饰、寻找高清素材、浏览相似美图，尽在百度识图!</li> </ul> <div class="stmore_arrow_in"></div> <div class="stmore_arrow_out"></div> </div> <a id="closest" href="javascript:void(0);" title="关闭"></a> <div id="point" style="display:none;"> <img src="//img1.bdstatic.com/img/image/shitu/feimg/uploading.gif" /><span>正在识别中，请稍候...</span> <a id="cancelst" href="javascript:void(0);" title="取消"></a> </div> <div class="undrag-text-tip" id="undragtip"> <p>抱歉，Safari不支持拖拽识图。<br/> 请保存图片到本地，通过本地上传或在搜索框粘贴图片url进行识图。</p> </div> <div class="undrag-text-tip" id="untip"> <p>IE9及以下版本浏览器不支持识图功能，<br/> 请升级浏览器或使用Chrome、QQ、搜狗浏览器进行识图</p> </div> <div id="dragtip" style="display:none;"> <span>请拖拽图片到此处</span> <div class="drag_dot_area drag_dot_left_top"></div> <div class="drag_dot_area drag_dot_left_bottom"></div> <div class="drag_dot_area drag_dot_right_top"></div> <div class="drag_dot_area drag_dot_right_bottom"></div> <a id="cancelst" href="javascript:void(0);" title="取消"></a> </div> <div class="left-border"></div> <div class="right-border"></div> </div> <div id="mock-stsug"></div> </div>  </div>
+<div id='userInfo'>
+<a target='_blank' href='http://www.baidu.com/'>百度首页</a>
+</div>
+</div>
+</div>
+</div>
+<div id="pageLayoutTipWindow">
+<div class="page-layouttip-banner">
+<div class="page-layouttip-describe">温馨提示：由于您的浏览器安装了某些插件，导致页面布局失败，重新加载可恢复布局</div>
+<div class="page-layouttip-loadbtn">重新加载</div>
+<div class="page-layouttip-viewbtn">继续查看</div>
+</div>
+</div><script>
+var commonHeaderConf = {
+	sugProdName: "image",
+	searchInputId: "kw"
+};
+void function(w){
+	window.setHeadUrl= function(o){
+		var links = {
+		i_news:['word','https://www.baidu.com/s?rtt=1&bsst=1&cl=2&tn=news&fr=image&ie=utf-8',1],
+        i_webpage:['wd','https://www.baidu.com/s?ie=utf-8',1],
+		i_tieba:['kw','http://tieba.baidu.com/f?ie=utf-8',1],
+		i_zhidao:['word','http://zhidao.baidu.com/q?ct=17&pn=0&tn=ikaslist&rn=10&lm=0&ie=utf-8',1],
+		i_mp3:['key','http://music.baidu.com/search?fr=img&ie=utf-8',1],
+		i_video:['wd','https://www.baidu.com/sf/vsearch?pd=video&tn=vsearch&ie=utf-8&wrsv_spt=10',1],
+		i_map:['wd','http://map.baidu.com/?newmap=1&ie=utf-8&s=s',2],
+		i_baike:['word','http://baike.baidu.com/search/word?pic=1&sug=1&enc=utf8',1],
+		i_wenku:['word','http://wenku.baidu.com/search?ie=utf-8',1]
+		},
+		name = o.name,
+		items = links[name],
+		kw = document.getElementById(w),
+		reg = new RegExp('^\\s+|\\s+\x24'),
+		key = kw.value.replace(reg,'');
+		if(items){
+			if(key.length > 0){
+				var wd = items[0],
+					url = items[1],
+					proSign = items[2];
+				url = pro(url,wd,key,proSign);
+				o.href = url;
+
+			}else{
+				o.href = o.href.match(new RegExp('^http:\/\/.+\\.baidu\\.com'))[0];
+			}
+            if(!o.clickHandle){
+                o.onclick = function(e){
+                    if(typeof p === 'function'){
+                        e = e || window.event;
+                        p(e, 52, {isAsyn : true, to : this.name, href : this.href});
+                    }
+
+                };
+                o.clickHandle = true;
+            }
+		}
+		function pro(url,wd,key,proSign){
+			/*日文片假部分乱码\u30f7--\u30fb,转换成实体*/
+			function HtmlEncodeAndComponent(inTXT){
+				/*地图，uri编码，不转换成实体*/
+				if(proSign==2){
+					return encodeURIComponent(key);
+				}
+				var hexArray =[],entityCode = '',finalKey = '', character='',tmpInt=0;
+				for(i=0; i<inTXT.length; i++){
+					character = inTXT.charCodeAt(i).toString(16).toUpperCase();
+					tmpInt = parseInt(character,16);
+					if(tmpInt>=0x30f7&&tmpInt<=0x30fb){
+						decCode = tmpInt.toString(10);
+						entityCode = '&#'+decCode+';';
+						finalKey += encodeURIComponent(entityCode);
+
+					}else{
+						entityCode = inTXT.charAt(i);
+						if(proSign>0){
+							finalKey += encodeURIComponent(entityCode);
+						}else{
+							finalKey += entityCode;
+						}
+					}
+				}
+				return finalKey;
+			}
+			var prefix = (url.indexOf('?')>0?'&':'?') + wd +'=';
+			if(proSign == 2){
+				prefix = encodeURIComponent(prefix);
+			}
+			key = HtmlEncodeAndComponent(key);
+			return url + prefix + key;
+		}
+	}
+}(commonHeaderConf.searchInputId);
+</script>
+<div class="s_tab" id="bdpcImgTab">
+<div id="bdpcImgTopTab">
+<a href="https://www.baidu.com/"  onmousedown="setHeadUrl(this)" name="i_webpage" >网页</a>
+<a href="http://news.baidu.com/" onmousedown="setHeadUrl(this)" name="i_news">资讯</a>
+<a href="http://tieba.baidu.com/" onmousedown="setHeadUrl(this)" name="i_tieba">贴吧</a>
+<a href="http://zhidao.baidu.com/" onmousedown="setHeadUrl(this)" name="i_zhidao" >知道</a>
+<a href="http://www.baidu.com/" onmousedown="setHeadUrl(this)" name="i_video" >视频</a>
+<a href="http://music.baidu.com/" onmousedown="setHeadUrl(this)" name="i_mp3" class="eng">音乐</a>
+<b>图片</b>
+<a href="http://map.baidu.com/" onmousedown="setHeadUrl(this)" name="i_map" >地图</a>
+<a href="http://wenku.baidu.com/" onmousedown="setHeadUrl(this)" name="i_wenku">文库</a>
+<a href="https://www.baidu.com/more/" onmousedown="setHeadUrl(this)" name="i_more">更多»</a>
+</div>
+</div>
+<script>
+	var imgMainSearch = document.getElementById('imgMainSearch');
+    var imgSearchBox = document.getElementById('imgSearchBox');
+	var bdpcImgTab = document.getElementById('bdpcImgTab');
+	var bdpcImgTopTab = document.getElementById('bdpcImgTopTab');
+	
+	var setSearchStyle = function (flag) {
+		var winWidth = window.innerWidth
+		|| (document.documentElement && document.documentElement.clientWidth)
+		|| (document.body && document.body.clientWidth);
+		if (imgMainSearch && imgSearchBox && bdpcImgTab && bdpcImgTopTab && winWidth > 1920) {
+			bdpcImgTab.className = 's_tab s_img_tab';
+		    bdpcImgTopTab.className = 's_imgtop_tab';
+		    imgMainSearch.className = 's_img_search';
+	        imgSearchBox.className = 's_img_search_out';
+		} else if (flag) {
+        	imgMainSearch.className = '';
+            imgSearchBox.className = '';
+            bdpcImgTab.className = 's_tab';
+	    	bdpcImgTopTab.className = '';
+        }
+	};
+
+	setSearchStyle();
+
+	window.onresize = function () {
+		setSearchStyle(1);
+    };
+</script>
+<div id="topInfoBar">
+<div id="newImgFilter">
+<div class="new-filter-container filter">
+<div id="typeFilter" class="typeFilter"></div>
+<div id="sizeFilter" class="subFilter sizeFilter"></div>
+<div id="colorFilter" class="subFilter"></div>
+</div>
+</div><div id="topRS">
+<em class="pull-rs-title">相关搜索：</em><a class="pull-rs" title="查看 刘亦菲刘诗诗"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%88%98%E4%BA%A6%E8%8F%B2%E5%88%98%E8%AF%97%E8%AF%97&hs=0&oriquery=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&ofr=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&sensitive=0">刘亦菲刘诗诗</a><a class="pull-rs" title="查看 刘亦菲吧"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%88%98%E4%BA%A6%E8%8F%B2%E5%90%A7&hs=0&oriquery=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&ofr=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&sensitive=0">刘亦菲吧</a><a class="pull-rs" title="查看 吴亦凡刘亦菲"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%90%B4%E4%BA%A6%E5%87%A1%E5%88%98%E4%BA%A6%E8%8F%B2&hs=0&oriquery=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&ofr=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&sensitive=0">吴亦凡刘亦菲</a><a class="pull-rs" title="查看 刘亦菲生日"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%88%98%E4%BA%A6%E8%8F%B2%E7%94%9F%E6%97%A5&hs=0&oriquery=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&ofr=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&sensitive=0">刘亦菲生日</a><a class="pull-rs" title="查看 刘亦菲井柏然"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%88%98%E4%BA%A6%E8%8F%B2%E4%BA%95%E6%9F%8F%E7%84%B6&hs=0&oriquery=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&ofr=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&sensitive=0">刘亦菲井柏然</a><a class="pull-rs" title="查看 刘亦菲眼睛"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%88%98%E4%BA%A6%E8%8F%B2%E7%9C%BC%E7%9D%9B&hs=0&oriquery=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&ofr=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&sensitive=0">刘亦菲眼睛</a><a class="pull-rs" title="查看 刘亦菲直播"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%88%98%E4%BA%A6%E8%8F%B2%E7%9B%B4%E6%92%AD&hs=0&oriquery=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&ofr=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&sensitive=0">刘亦菲直播</a><a class="pull-rs" title="查看 刘亦菲鼻子"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%88%98%E4%BA%A6%E8%8F%B2%E9%BC%BB%E5%AD%90&hs=0&oriquery=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&ofr=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&sensitive=0">刘亦菲鼻子</a><a class="pull-rs" title="查看 刘亦菲短发"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%88%98%E4%BA%A6%E8%8F%B2%E7%9F%AD%E5%8F%91&hs=0&oriquery=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&ofr=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&sensitive=0">刘亦菲短发</a><a class="pull-rs" title="查看 刘亦菲白浅"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%88%98%E4%BA%A6%E8%8F%B2%E7%99%BD%E6%B5%85&hs=0&oriquery=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&ofr=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&sensitive=0">刘亦菲白浅</a><a class="pull-rs" title="查看 刘亦菲发型"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%88%98%E4%BA%A6%E8%8F%B2%E5%8F%91%E5%9E%8B&hs=0&oriquery=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&ofr=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&sensitive=0">刘亦菲发型</a><a class="pull-rs" title="查看 刘亦菲虞姬"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%88%98%E4%BA%A6%E8%8F%B2%E8%99%9E%E5%A7%AC&hs=0&oriquery=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&ofr=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&sensitive=0">刘亦菲虞姬</a><a class="pull-rs" title="查看 刘亦菲头像"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%88%98%E4%BA%A6%E8%8F%B2%E5%A4%B4%E5%83%8F&hs=0&oriquery=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&ofr=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&sensitive=0">刘亦菲头像</a><a class="pull-rs" title="查看 刘亦菲素描"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%88%98%E4%BA%A6%E8%8F%B2%E7%B4%A0%E6%8F%8F&hs=0&oriquery=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&ofr=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&sensitive=0">刘亦菲素描</a><a class="pull-rs" title="查看 刘亦菲电视剧"  target="_self"  href="/search/index?ct=201326592&cl=2&st=-1&lm=-1&nc=1&ie=utf-8&tn=baiduimage&ipn=r&rps=1&pv=&fm=rs1&word=%E5%88%98%E4%BA%A6%E8%8F%B2%E7%94%B5%E8%A7%86%E5%89%A7&hs=0&oriquery=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&ofr=%25E5%2588%2598%25E4%25BA%25A6%25E8%258F%25B2&sensitive=0">刘亦菲电视剧</a></div>
+<div id="timeliness" class="hotpot-container">
+</div>
+<script type="text/juicer" id="timeliness-tpl">
+    <div id="timeliness-bless">
+        <div class="blessing-img-wrapper">
+            <img class="blessing-img" src="${icon.normal}" alt="" />
+            <img class="blessing-img icon-zoomup" src="${icon.normal}" alt="" />
+        </div>
+        <span class="blessing-content">
+            ${title}
+        </span>
+        <div class="blessing-count-wrapper">
+            (<span class="blessing-count"></span>人)
+        </div>
+    </div>
+    <div class="egg">
+        <img class="blessing-img-egg" src="${egg}" alt="" />
+    </div>
+</script>
+</div>
+<div id="specialQuery"></div>
+<div id="browser-hotword"></div>
+
+</div>
+ 
+
+<script>
+    window.vsid = '14f6be8f4828dba931e3702fdfddcb4050dda075';
+</script>
+<div id="wrapper">
+<div id="pnlBeforeContent">
+<div class="news-slider"></div>
+<div id="smeContainer" style="display:none;">
+</div>
+</div>
+<div id="imgContainer" class="">
+<div id="timeliness-title">
+<img class="blessing-img guideIcon" src="">
+<span class="timeliness-desc"></span>
+</div>
+<div id="pnlBeforeImgList">
+<div class="memory-con" id="memoryBar" style="display: none;">您收藏时已经看到第<span class="memory-page">10</span>页，<span><a class="memory-link">点击直达</a></span><a class="memory-close"></a></div>
+</div>
+<div id="specialRecommend"></div>
+
+
+
+
+<div id="imgid">
+</div>
+<div id="lastPage" style="position:relative;overflow:hidden;padding-left:50px;zoom:1;display:none;">
+为给您提供最相关的图片结果，百度已省略与以上结果相类似的图片，您可<a href="/">点此查看更多搜索结果</a>。</div>
+<div id="ajaxInfo"></div>
+<div id="noPage" >
+<div id="dataNone" style="margin:0 0 0 15px;font-size:14px;line-height:20px;">
+抱歉，在该筛选条件下，没有找到与<font color="#C60A00">刘亦菲</font>相关的图片。</div>
+<div id="stdNone" style="margin:0 0 0 15px;font-size:14px;line-height:20px;">
+<br>
+<br>
+<font class="fB" style="font-size:14px">百度建议您：</font>
+<div style="font-size:14px;margin-top:0px;">
+<li id="listSetDefault">将筛选功能<a href="/search/index?ct=201326592&z=&s=&tn=baiduimage&ipn=r&word=%E5%88%98%E4%BA%A6%E8%8F%B2&ie=utf-8&oe=utf-8&lm=-1&hd=0&latest=0&copyright=0&st=-1&z=&se=0&fr=&pn=0&width=&height=&face=0&ct=503316480" onclick="" >恢复默认状态</a></li>
+<li>修改当前的筛选条件</li>
+<li >看看输入的文字是否有误</li>
+</div>
+<div id=DivPost style="margin-top:0px;margin-left:15px;"></div>
+</div>
+</div>
+</div>
+<div style="clear:both;"></div>
+<p href="javascript:void(0);" id="loading"><img style="width:50px;height:54px;"/></p>
+<div id="pageMoreWrap">
+<a href="javascript:void(0);" onmousedown="p(null,499,{domid:'pageMore',type:'click'})" id="pageMore">加载更多图片</a>
+<div id="resultInfo">找到相关图片约585,000张</div>
+</div><div id="pnlAfterContent" style="display:none">
+<div id="cmsimage">
+<div id="hotWordDiv"></div>
+</div>
+<div id="relecom54">
+</div>
+</div>
+</div>
+<div id="loginbar" style="display:none;"> <div class="loginbar-inner"> <div class="login-png"></div> <a class="baidulogin" href="javascript:;">百度账号登陆</a> <span>或</span> <a class="baidureg" href="javascript:void(0);">注册</a> </div> <a class="loginbar-close" href="javascript:;">关闭</a> </div>  <script>
+    window.alogObjectConfig = {
+        product: '11',
+        page: '2', 
+        speed_page: '2',  
+ 
+        speed: {
+            sample: '0.01'   
+        },
+ 
+       
+        monkey: {
+            sample: '0.01'   
+        },
+ 
+        exception: { 
+            sample: '0.01' 
+        },
+ 
+        feature: {
+            sample: '0.01'
+        },
+ 
+        
+        cus: {
+            sample: '0.01' 
+        },
+ 
+        csp: {
+            sample: '0.01',
+            'default-src': [
+                {match: '*bae.baidu.com', target: 'Accept,Warn'},
+                {match: '*.baidu.com,*.bdstatic.com,*.bdimg.com,localhost,*.hao123.com,*.hao123img.com', target: 'Accept'},
+                {match: /^(127|172|192|10)(\.\d+){3}$/, target: 'Accept'},
+                {match: '*', target: 'Accept,Warn'}
+            ]
+        }
+    };
+ 
+    // pc和mobile端会稍有不同，必须严格按照该文档来部署，该段代码必须放在上面的window.alogObjectConfig配置之后
+    void function(a,b,c,d,e,f,g){a.alogObjectName=e,a[e]=a[e]||function(){(a[e].q=a[e].q||[]).push(arguments)},a[e].l=a[e].l||+new Date,d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d;var h=!0;if(a.alogObjectConfig&&a.alogObjectConfig.sample){var i=Math.random();a.alogObjectConfig.rand=i,i>a.alogObjectConfig.sample&&(h=!1)}h&&(f=b.createElement(c),f.async=!0,f.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),g=b.getElementsByTagName(c)[0],g.parentNode.insertBefore(f,g))}(window,document,"script","/hunter/alog/alog.min.js","alog"),void function(){function a(){}window.PDC={mark:function(a,b){alog("speed.set",a,b||+new Date),alog.fire&&alog.fire("mark")},init:function(a){alog("speed.set","options",a)},view_start:a,tti:a,page_ready:a}}();
+    void function(n){var o=!1;n.onerror=function(n,e,t,c){var i=!0;return!e&&/^script error/i.test(n)&&(o?i=!1:o=!0),i&&alog("exception.send","exception",{msg:n,js:e,ln:t,col:c}),!1},alog("exception.on","catch",function(n){alog("exception.send","exception",{msg:n.msg,js:n.path,ln:n.ln,method:n.method,flag:"catch"})})}(window);
+</script>  <script>
+    void function(e,t){for(var n=t.getElementsByTagName("img"),a=+new Date,i=[],o=function(){this.removeEventListener&&this.removeEventListener("load",o,!1),i.push({img:this,time:+new Date})},s=0;s< n.length;s++)!function(){var e=n[s];e.addEventListener?!e.complete&&e.addEventListener("load",o,!1):e.attachEvent&&e.attachEvent("onreadystatechange",function(){"complete"==e.readyState&&o.call(e,o)})}();alog("speed.set",{fsItems:i,fs:a})}(window,document);
+</script> 
+<a id="backTop" href="javascript:;" data-title="返回顶部"><div class="btn-inner-text"></div></a>
+<a href="javascript:;" id="report_link" data-title="反馈图片"><div class="btn-inner-text">反馈</div></a>
+ 
+<script>
+    var Hunter = window.Hunter || {};
+    Hunter.userConfig = Hunter.userConfig || [];
+    Hunter.userConfig.push({
+        hid: 36991
+    });
+</script>
+                    <script>
+    void function(a,b,c,d,e,f){function g(b){a.attachEvent?a.attachEvent("onload",b,!1):a.addEventListener&&a.addEventListener("load",b)}function h(a,c,d){d=d||15;var e=new Date;e.setTime((new Date).getTime()+1e3*d),b.cookie=a+"="+escape(c)+";path=/;expires="+e.toGMTString()}function i(a){var c=b.cookie.match(new RegExp("(^| )"+a+"=([^;]*)(;|$)"));return null!=c?unescape(c[2]):null}function j(){var a=i("PMS_JT");if(a){h("PMS_JT","",-1);try{a=a.match(/{["']s["']:(\d+),["']r["']:["']([\s\S]+)["']}/),a=a&&a[1]&&a[2]?{s:parseInt(a[1]),r:a[2]}:{}}catch(c){a={}}a.r&&b.referrer.replace(/#.*/,"")!=a.r||alog("speed.set","wt",a.s)}}if(a.alogObjectConfig){var k=a.alogObjectConfig.sample,l=a.alogObjectConfig.rand;d="https:"===a.location.protocol?"https://fex.bdstatic.com"+d:"http://fex.bdstatic.com"+d,k&&l&&l>k||(g(function(){alog("speed.set","lt",+new Date),e=b.createElement(c),e.async=!0,e.src=d+"?v="+~(new Date/864e5)+~(new Date/864e5),f=b.getElementsByTagName(c)[0],f.parentNode.insertBefore(e,f)}),j())}}(window,document,"script","/hunter/alog/dp.min.js");
+</script>   </body><script type="text/javascript"  src="//img0.bdstatic.com/static/common/widget/ui/base/base_a66ce51.js" ></script>
+<script type="text/javascript"  src="//img0.bdstatic.com/static/common/pkg/cores_b4aad57.js" ></script>
+<script type="text/javascript"  src="//img1.bdstatic.com/static/common/widget/ui/juicer/juicer_59c3d50.js" ></script>
+<script type="text/javascript"  src="//img1.bdstatic.com/static/searchresult/pkg/result_c42b64c.js" ></script>
+<script type="text/javascript">!function(){    window.tn = 'result';
+    window.vsid = '6ef66cff2db7c5dc47997fff9977a4b2dd6f799f';
+    if ('index' === window.tn
+        || 'result' === window.tn
+        || 'detail' === window.tn) {
+        var sttb = document.getElementById('sttb');
+        sttb.removeAttribute && sttb.removeAttribute('title');
+    }
+    /**
+     * 统计代码
+    **/
+    window.ss = function(){
+        var URL = '//imgstat.baidu.com/9.gif?rainbow=1&';
+        function request(url){
+            var seed = Math.random();
+            var img = window[seed] = new Image;
+            img.onload = img.onerror = function(){
+                window[seed] = null;
+                img.onload = img.onerror = null;
+                img = null;
+            };
+            img.src = url;
+        }
+
+        /* p = 0, 首页八张demo图片点击统计
+         * p = 1, 结果页tab相关： name=stu相同tab显示；name=face 人脸搜索tab显示; type=show展现；type=click点击
+         * p = pv, 结果页PV统计：data=1，有结果；data=0无结果；data=-1，down页面
+         **/
+
+        return function(arg, url, e){
+            var s = URL + json2Query(arg) + '&' + Math.random();
+            request(s);
+            if(url){
+                setTimeout(function(){
+                    location.href = url;
+                }, 300);
+                e = e || window.event;
+                if(e){
+                    if(e.preventDefault){
+                        e.preventDefault();
+                    }else{
+                        e.returnValue = false;
+                    }
+                }
+
+            }
+        };
+
+    }();
+    window.__originTitle = document.title;
+    function json2Query(json){
+        if(json == null || typeof json != 'object') return json;
+        var query = [];
+        for(var i in json){
+            if(i != '')
+                query[query.length] = i + '=' + json[i];
+        }
+        return query.join('&');
+    }
+
+    require.async(["common:widget/ui/base/base","common:widget/shitu/run"],function($, shitu){
+        window.$ = $;
+        $(document).ready(function() {
+            var st = new shitu();
+            st.init();
+            window.stInstance = st;
+        });
+    });
+}();
+!function(){    require.async(["searchresult:widget/pagelets/base/topRs/topRs"],function(topRsClass){
+        var topRs = new topRsClass();
+        var changeFilter = false;
+                    changeFilter = true;
+                topRs.init({
+            changeFilter: changeFilter
+        });
+    })
+}();
+!function(){    if (window.hotspotData) {
+        require.async(['searchresult:widget/pagelets/base/timeliness/init'], function (Timeliness) {
+            new Timeliness().init(window.hotspotData);
+        });
+    }
+}();
+!function(){/**
+* isRefresh 用来判断禁止se或查询的参数是否生效,false表示无须清零，true表示需要清零
+*/
+require.async(["common:widget/ui/base/base","searchresult:widget/ui/utils/utils","common:widget/ui/historyRecord/historyRecord","common:widget/ui/utils/utils"],function( $, utils, HistoryRecord, commonUtils){
+
+    window.s_submit = function(form,isRefresh){
+
+
+//图片url检索跳转
+var keyword = form.word.value;
+
+if ($.trim(keyword).length > 0) {
+    var historyRecord = new HistoryRecord({historyKey: 'indexPageSugList'});
+    historyRecord.setRecord(keyword);
+    $.cookie.set('cleanHistoryStatus', 0, {path: '/'});
+}
+
+
+var tiaoma = /^[\s]*http[s]*\:\/\/[\s\S]*\.[jpg|gif|png|bmp|jpeg]*[\s]*$/.test(keyword) ||/img5\.imgtn\.bdimg\.com/.test(keyword) || /mt1\.baidu\.com\/timg/.test(keyword);
+var ajaxURL = 'https://graph.baidu.com/upload?image=' + encodeURIComponent(keyword) + '&range=imagePage&tn=pc&from=pc&image_source=PC_UPLOAD_IMAGE_ICONURL&extUiData%5bisLogoShow%5d=1';
+var isIE6789 = $.browser.msie && ($.browser.version <= 9);
+
+        if (tiaoma && !isIE6789) {
+            // speed
+            $.cookie('uploadTime', new Date().getTime(), {path: '/'});
+
+            $.ajax({
+                url: ajaxURL,
+                type: 'post',
+                success: function (response) {
+                    if (response.status === 0) {
+                        location.href = response.data.url;
+                    } else if (response.status === 1002) {
+                        alert('未找到该图片的详细信息，请上传其他图片');
+                    } else {
+                        alert('出错了！（规则未定）');
+                    }
+                },
+                error: function () {
+                    alert('网络问题，请稍候再试！');
+                }
+            });
+           return false;
+        }
+
+
+        var searchConf = utils.query2Json(utils.escapeXSS(window.location.search.substring(1)));
+        if(typeof searchConf.fm == "undefined"){searchConf.fm = '';}
+        if(typeof searchConf.fmq == "undefined"){searchConf.fmq = '';}
+        if(utils.trim(searchConf.queryWord) == form.word.value){
+            form.fmq.value = utils.fmqValueSet();
+        }else{
+            var fmqDate = new Date();
+            var T = fmqDate.getTime();
+            if(searchConf.fmq.indexOf('m') > -1 && searchConf.fmq.indexOf('_m') == -1 && searchConf.fmq.indexOf('_R') == -1){
+                var fmqvalue = searchConf.fmq;
+                form.fmq.value = T + '_' +fmqvalue + '_R';
+            }else{
+                form.fmq.value =  T + '_R';
+            }
+
+        }
+        var isflip = $('body').hasClass('flip');
+        form.tn.value = "baiduimage";
+
+        form.ct.value = "201326592";
+        form.cl.value = "2";
+        
+        form.pv.value = "";
+        form.action = "/search/index";
+
+        // 新筛选，及未命中阿凡达筛选时，重新检索时需要记录筛选
+                    form.z.value = commonUtils.getQueryValue('z');
+            form.ic.value = commonUtils.getQueryValue('ic');
+            form.lm.value = commonUtils.getQueryValue('lm');
+            form.hd.value = commonUtils.getQueryValue('hd');
+            form.latest.value = commonUtils.getQueryValue('latest');
+            form.copyright.value = commonUtils.getQueryValue('copyright');
+            form.width.value = commonUtils.getQueryValue('width');
+            form.height.value = commonUtils.getQueryValue('height');
+        
+        if (window.canUseHttps) {
+            form.action = 'https://' + window.location.host + '/search/index';
+        }
+
+        if(isflip) {
+            form.action = "/search/flip";
+        }
+        if(isRefresh == true){
+            // submit直接提交新query
+            form.se.value = "1";
+        }else{
+            var showtab =  parseInt(searchConf.showtab);
+            if(!isNaN(showtab)&&showtab>0){
+                form.showtab.value = showtab;
+            }
+        }
+        form.ctd.value = (+new Date()) + "^00_" + $(window).width() + "X" +  window.innerHeight;
+
+        return true;
+    }
+})
+
+}();
+!function(){    require.async(["searchresult:widget/pagelets/base/imgShowOpt/imgShowOpt"],function(imgShowOptClass){
+        var imgShowOpt= new imgShowOptClass();
+        imgShowOpt.init();
+    })
+}();
+!function(){
+		window.bid = -1;
+
+	if(!window.passport){
+	    var script = document.createElement("script");
+	    script.src = '//passport.baidu.com/passApi/js/uni_login_wrapper.js?cdnversion=' + (new Date).getTime();
+	    document.body.appendChild(script);
+	}
+	require.async(["common:widget/loginbar/loginbar"],function(loginbar){
+
+	    loginbar.init();        
+
+	});
+
+
+}();
+!function(){    require.async(['searchresult:widget/pagelets/base/backTop/init']);
+
+    require.async(['common:widget/ui/feedback/feedback'], function (feedback) {
+        var callbacks = {};
+        feedback.init(callbacks);
+    });
+}();
+!function(){    window._alaEnter && window._alaEnter !== true && window._alaEnter('sample');
+    var sample = [];
+    var keyValue = '';
+    for(var name in sample) {
+        keyValue +=  name + ':' + sample[name] + ',';
+    }
+    window.samplekey = keyValue.substr(0, keyValue.length - 1);
+}();
+!function(){        require.async(['searchresult:widget/ui/app/app'], function (app) {
+    require.async(["searchresult:widget/ui/action/star/action"]);
+    app.setPageInfo({
+    tpl: 'star',
+    //在后端对query进行抽样的时候，用这个来统计实验组和对照组
+    queryPageType : '0',
+    gsm: '1e',
+    listNum : "3796",
+    dispNum : "585910",
+    bdIsClustered : "1",
+    frStr : "&fr=",
+    sme : "",
+    ie : "utf-8",
+    oe : "utf-8",
+    fInsertNum : "0",
+    queryWordEnc: "%E5%88%98%E4%BA%A6%E8%8F%B2",
+    queryWordGBKEnc: "%C1%F5%D2%E0%B7%C6",
+    queryWord : "刘亦菲",
+    queryUrlWord : "%E5%88%98%E4%BA%A6%E8%8F%B2",
+    bdFmtDispNum : "585910",
+    bdSearchTime : "",
+    gbkword:'%C1%F5%D2%E0%B7%C6',
+    resTabs : [],
+    useSign:"",
+    userid:"",
+    userNumID:"",//这个才是真正的 userid
+    encodeUserNumId:"",
+    spaceUrl:"",
+    hasUserName: ('' == '0'),
+    bdstoken : '',
+    thirdLogo :'0',// 第三方网站登录的logo，为空则不显示
+    se:'',
+    needIE:'1',
+    jit:'',
+    showHot:'',
+    hasResult: '1',
+    aspSID:'',
+    strategyType:"star",
+    oriquery: '',
+    fm: '',
+    personalized:'0',
+    hs: '0'
+    });
+    app.setData('jsConfs', {    "normal": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,"lineHeight": 200,        "maxBaseLineHeight": 220,        "minBaseLineHeight": 200,"pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,"maxImgWidth": 400,"pageMoreNum": 10,"leftMenu": 0    },    "comic": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 190,        "maxBaseLineHeight": 210,        "minBaseLineHeight": 190,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "ald": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 190,        "maxBaseLineHeight": 210,        "minBaseLineHeight": 190,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "star": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 260,        "maxBaseLineHeight": 280,        "minBaseLineHeight": 250,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu":0    },    "avatar_brand": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 300,        "maxBaseLineHeight": 320,        "minBaseLineHeight": 280,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 500,        "pageMoreNum": 10,"leftMenu": 0    },    "avatar_star": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 260,        "maxBaseLineHeight": 280,        "minBaseLineHeight": 250,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,"leftMenu": 0    },    "avatar_head": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 210,        "minBaseLineHeight": 190,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 190    },    "avatar_wallpaper": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 180,        "maxBaseLineHeight": 200,        "minBaseLineHeight": 160,        "pageLineNum": 3,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 190    },    "single": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 220,        "minBaseLineHeight": 200,        "pageLineNum": 1,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    },    "personalized": {        "margin": 5,        "padding": 0,        "pageNumHeight": 33,        "lineHeight": 200,        "maxBaseLineHeight": 220,        "minBaseLineHeight": 200,        "pageLineNum": 2,        "pageImgLimit": 20,        "imgDigestHeight": 0,        "maxImgWidth": 400,        "pageMoreNum": 10,        "leftMenu": 0    }}
+);
+    app.setData('imgData', {    "queryEnc":"%E5%88%98%E4%BA%A6%E8%8F%B2",    "displayNum":585910,    "bdIsClustered" : "1",    "listNum":3796,    "bdFmtDispNum" : "585910",    "bdSearchTime" : "",    "isNeedAsyncRequest":0,"data":[{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=4287181685,1470261440&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=4287181685,1470261440&fm=214&gp=0.jpg","FromURL":"http:\/\/www.duitang.com\/blog\/?id=431379706"},{"ObjURL":"http:\/\/img3.duitang.com\/uploads\/item\/201508\/18\/20150818233659_kvumt.jpeg","FromURL":"http:\/\/www.duitang.com\/blog\/?id=431982244"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=4287181685,1470261440&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=4287181685,1470261440&fm=26&gp=0.jpg",            "pageNum":0,            "objURL":"http://b-ssl.duitang.com/uploads/item/201508/18/20150818233659_KVuMT.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Fks52AzdH3F?t1=9n8ll9n9l",            "fromURLHost":"全网资源","currentIndex":"",            "width":1200,            "height":1200,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"151005302580",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong> ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "4287181685,1470261440",            "os" : "360179919,368899837",            "simid" : "4191729963,683044554",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=1359793217,2805555887&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=1359793217,2805555887&fm=214&gp=0.jpg","FromURL":"http:\/\/www.duitang.com\/blog\/?id=691501696"},{"ObjURL":"http:\/\/img4.duitang.com\/uploads\/item\/201411\/02\/20141102002336_jrbcy.jpeg","FromURL":"http:\/\/www.duitang.com\/people\/mblog\/235982294\/detail\/"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=1359793217,2805555887&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=1359793217,2805555887&fm=26&gp=0.jpg",            "pageNum":1,            "objURL":"http://b-ssl.duitang.com/uploads/item/201408/30/20140830170758_Ed8yF.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Fks52AzdH3F?t1=dnccba0mm",            "fromURLHost":"全网资源","currentIndex":"",            "width":1200,            "height":800,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"44882437160",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong> ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1359793217,2805555887",            "os" : "4117822953,180948552",            "simid" : "3179660227,3874206858",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=154603817,3028123296&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=154603817,3028123296&fm=214&gp=0.jpg","FromURL":"http:\/\/www-beta1.duitang.com\/blog\/?id=751016281"},{"ObjURL":"http:\/\/5b0988e595225.cdn.sohucs.com\/images\/20171123\/1299f88961ee43d795344b10e594146d.jpeg","FromURL":"http:\/\/www.sohu.com\/a\/206075792_162238"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=154603817,3028123296&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=154603817,3028123296&fm=26&gp=0.jpg",            "pageNum":2,            "objURL":"http://b-ssl.duitang.com/uploads/item/201504/12/20150412H5423_zSGQZ.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Fks52AzdH3F?t1=n9ccaacn9",            "fromURLHost":"全网资源","currentIndex":"",            "width":1200,            "height":1856,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"158126317030",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong> ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "154603817,3028123296",            "os" : "4120752575,3863762273",            "simid" : "3365226307,326888895",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=3153796753,219161505&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img3.imgtn.bdimg.com\/it\/u=3153796753,219161505&fm=214&gp=0.jpg","FromURL":"http:\/\/mt.sohu.com\/20161102\/n472111869.shtml"},{"ObjURL":"http:\/\/img.name.388g.com\/jzd\/uploads\/0\/images\/201707\/1499419922730503.jpg","FromURL":"http:\/\/name.388g.com\/mingren\/24884.html"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=3153796753,219161505&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=3153796753,219161505&fm=26&gp=0.jpg",            "pageNum":3,            "objURL":"http://img.mp.itc.cn/upload/20161102/93a9cfc021ed44b28af7a143be6ba017_th.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bf5i7_z&e3Bv54AzdH3FwAzdH3F880lcm98a_n9l8d9",            "fromURLHost":"全网资源","currentIndex":"",            "width":640,            "height":400,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"200527758200",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"这张脸被评为2016世界最美脸蛋,被赞活着的蒙娜丽莎.",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3153796753,219161505",            "os" : "2016001426,3784047102",            "simid" : "28122733,879087090",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=234931687,468072147&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=234931687,468072147&fm=214&gp=0.jpg","FromURL":"http:\/\/www.duitang.com\/people\/mblog\/258061298\/detail\/"},{"ObjURL":"http:\/\/img5q.duitang.com\/uploads\/item\/201411\/23\/20141123205812_bircn.jpeg","FromURL":"http:\/\/www.duitang.com\/people\/mblog\/306602980\/detail\/"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=234931687,468072147&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=234931687,468072147&fm=26&gp=0.jpg",            "pageNum":4,            "objURL":"http://pic.rmb.bdstatic.com/45af7b26b83fef2bc93f5c19df2af175.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fkwt3twiw5_z&e3Bkwt17_z&e3Bv54AzdH3Ff?t1=8m800a0la9a9m8almcl&ou6=frt1j6&u56=rv",            "fromURLHost":"全网资源","currentIndex":"",            "width":1200,            "height":750,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"197411592730",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"人称\"神仙姐姐\"<strong>刘亦菲<\/strong>,从赵灵儿,小龙女之后再无经典",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "234931687,468072147",            "os" : "3985302496,797772328",            "simid" : "3438835716,319038460",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=3899248704,862933056&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=3899248704,862933056&fm=214&gp=0.jpg","FromURL":"http:\/\/wenku.baidu.com\/view\/8645b194fc0a79563c1ec5da50e2524de518d0e4.html"},{"ObjURL":"http:\/\/hiphotos.baidu.com\/doc\/pic\/item\/0eb30f2442a7d933dbc81c88a44bd11372f001ec.jpg","FromURL":"http:\/\/wenku.baidu.com\/view\/401a8a36df80d4d8d15abe23482fb4daa58d1d2f.html"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=3899248704,862933056&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=3899248704,862933056&fm=26&gp=0.jpg",            "pageNum":5,            "objURL":"http://hbimg.b0.upaiyun.com/ee59eaa075189e73c4a4283d242bcbfad1d22c77644c8-IK4Udg_fw658",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fi7wkwg_z&e3Bv54AzdH3FrtgfAzdH3Fllb9mb9d9AzdH3F",            "fromURLHost":"全网资源","currentIndex":"",            "width":576,            "height":768,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"129816102460",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3899248704,862933056",            "os" : "3110633085,642484755",            "simid" : "4159435525,610330897",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=992838895,1887654562&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=992838895,1887654562&fm=214&gp=0.jpg","FromURL":"http:\/\/www.duitang.com\/blog\/?id=755214548"},{"ObjURL":"http:\/\/photocdn.sohu.com\/20160315\/mp63531425_1458023883235_11.jpeg","FromURL":"http:\/\/www.sohu.com\/a\/63531425_108383"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=992838895,1887654562&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=992838895,1887654562&fm=26&gp=0.jpg",            "pageNum":6,            "objURL":"http://img4.duitang.com/uploads/item/201601/26/20160126180314_miE8N.thumb.700_0.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Fks52AzdH3F?t1=cn9m0m9mm",            "fromURLHost":"全网资源","currentIndex":"",            "width":700,            "height":441,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"104380443310",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong> ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "992838895,1887654562",            "os" : "2091542916,1387339466",            "simid" : "3223998870,4042638541",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=161595078,3447474993&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img3.imgtn.bdimg.com\/it\/u=161595078,3447474993&fm=214&gp=0.jpg","FromURL":"http:\/\/bbs.voc.com.cn\/topic-4076752-1-1.html"},{"ObjURL":"http:\/\/ss1.sinaimg.cn\/bmiddle\/627a7b21x8d9ca5ae4470&690","FromURL":"http:\/\/blog.sina.com.cn\/s\/blog_5156e5b30100xcyy.html"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=161595078,3447474993&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=161595078,3447474993&fm=26&gp=0.jpg",            "pageNum":7,            "objURL":"http://photocdn.sohu.com/20100702/Img273232326.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fy7sj_z&e3Bf5i7_z&e3Bv54AzdH3Fda8aa0adAzdH3Fgd0ndndnda_c_z&e3Bfip4s",            "fromURLHost":"全网资源","currentIndex":"",            "width":322,            "height":500,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"29217927090",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"组图:<strong>刘亦菲<\/strong>展露迷人身材 大秀胸前好春光",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "161595078,3447474993",            "os" : "1482773626,4292930363",            "simid" : "69186126,703052962",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=4033366970,663916521&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=4033366970,663916521&fm=214&gp=0.jpg","FromURL":"http:\/\/www.sohu.com\/a\/231060974_184147"},{"ObjURL":"http:\/\/5b0988e595225.cdn.sohucs.com\/images\/20170612\/33433d7e03af480b97d4d5c646a9244f.png","FromURL":"http:\/\/www.sohu.com\/a\/148187784_397725"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=4033366970,663916521&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=4033366970,663916521&fm=26&gp=0.jpg",            "pageNum":8,            "objURL":"http://b-ssl.duitang.com/uploads/item/201606/23/20160623091452_3ZUGP.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Fks52AzdH3F?t1=cldn8d8ln",            "fromURLHost":"全网资源","currentIndex":"",            "width":1032,            "height":1149,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"31365822510",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong>天梭全球代言人18",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "4033366970,663916521",            "os" : "4210578058,3931700989",            "simid" : "3329517202,355547942",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=100895985,1754637368&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=100895985,1754637368&fm=214&gp=0.jpg","FromURL":"http:\/\/www.duitang.com\/people\/mblog\/438205474\/detail\/"},{"ObjURL":"http:\/\/hiphotos.baidu.com\/doc\/pic\/item\/1b4c510fd9f9d72a2ecddd88dd2a2834359bbbfe.jpg","FromURL":"http:\/\/wenku.baidu.com\/view\/49f3a41beffdc8d376eeaeaad1f34693dbef1054.html"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=100895985,1754637368&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=100895985,1754637368&fm=26&gp=0.jpg",            "pageNum":9,            "objURL":"http://b-ssl.duitang.com/uploads/item/201508/01/20150801100544_anTyP.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Fks52AzdH3F?t1=9cnmd00n9",            "fromURLHost":"全网资源","currentIndex":"",            "width":720,            "height":930,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"74419720870",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong> ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "100895985,1754637368",            "os" : "47634718,909140935",            "simid" : "3416495644,226840771",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=3165855817,2289437184&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=3165855817,2289437184&fm=214&gp=0.jpg","FromURL":"http:\/\/www.duitang.com\/blog\/?id=481094629"},{"ObjURL":"http:\/\/b-ssl.duitang.com\/uploads\/item\/201511\/13\/20151113203038_eihhf.thumb.700_0.jpeg","FromURL":"http:\/\/www.duitang.com\/blog\/?id=481094629"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=3165855817,2289437184&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=3165855817,2289437184&fm=26&gp=0.jpg",            "pageNum":10,            "objURL":"http://cdn.duitang.com/uploads/item/201511/13/20151113204849_xGEt4.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Frj5rsjAzdH3F4ks52AzdH3F9b888abcmAzdH3F1jpwtsAzdH3F",            "fromURLHost":"全网资源","currentIndex":"",            "width":1200,            "height":1545,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"34145795640",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3165855817,2289437184",            "os" : "1075604984,901379028",            "simid" : "4061942977,687730310",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=1837749080,569771208&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=1837749080,569771208&fm=214&gp=0.jpg","FromURL":"http:\/\/www.duitang.com\/people\/mblog\/109484971\/detail\/?next=20472117"},{"ObjURL":"http:\/\/img5.duitang.com\/uploads\/item\/201311\/08\/20131108224812_natns.jpeg","FromURL":"http:\/\/www.duitang.com\/people\/mblog\/227010786\/detail\/"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=1837749080,569771208&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=1837749080,569771208&fm=26&gp=0.jpg",            "pageNum":11,            "objURL":"http://b-ssl.duitang.com/uploads/item/201311/08/20131108224812_nAtNS.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Fks52AzdH3F?t1=8acldbab9",            "fromURLHost":"全网资源","currentIndex":"",            "width":1080,            "height":720,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"62662165500",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong> ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1837749080,569771208",            "os" : "488179860,375010722",            "simid" : "4090044563,611334653",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=4100616507,193709445&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=4100616507,193709445&fm=214&gp=0.jpg","FromURL":"http:\/\/www.duitang.com\/blog\/?id=643166683"},{"ObjURL":"http:\/\/img3.duitang.com\/uploads\/item\/201511\/27\/20151127073306_lkjmx.thumb.700_0.jpeg","FromURL":"http:\/\/www.duitang.com\/blog\/?id=492439954"}],"adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=4100616507,193709445&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=4100616507,193709445&fm=26&gp=0.jpg",            "pageNum":12,            "objURL":"http://b-ssl.duitang.com/uploads/item/201511/27/20151127073306_LkJMx.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Fks52AzdH3F?t1=9ln8cc0d0",            "fromURLHost":"全网资源","currentIndex":"",            "width":1200,            "height":643,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"46387325160",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong> 《瑞丽伊人风尚》每一帧都美如画",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "4100616507,193709445",            "os" : "7977608,458339953",            "simid" : "3033327395,3770064791",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=1827558195,1600394955&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=1827558195,1600394955&fm=214&gp=0.jpg","FromURL":"http:\/\/www.duitang.com\/blog\/?id=360412592"},{"ObjURL":"http:\/\/img4q.duitang.com\/uploads\/item\/201207\/28\/20120728145423_jjybn.jpeg","FromURL":"http:\/\/www.duitang.com\/people\/mblog\/152216605\/detail\/"}],"adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=1827558195,1600394955&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=1827558195,1600394955&fm=26&gp=0.jpg",            "pageNum":13,            "objURL":"http://b-ssl.duitang.com/uploads/item/201207/28/20120728145423_JjYBn.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Fks52AzdH3F?t1=dm8ad8ca0",            "fromURLHost":"全网资源","currentIndex":"",            "width":505,            "height":540,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"89085797240",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong> ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1827558195,1600394955",            "os" : "109675465,406137014",            "simid" : "3691063,760617608",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=3957830313,3794545453&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img3.imgtn.bdimg.com\/it\/u=3957830313,3794545453&fm=214&gp=0.jpg","FromURL":"http:\/\/www.topit.me\/album\/883823\/item\/3063868"},{"ObjURL":"http:\/\/photocdn.sohu.com\/20150707\/mp21635046_1436261043394_9.jpg","FromURL":"http:\/\/www.sohu.com\/a\/21635046_204841"}],"adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=3957830313,3794545453&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=3957830313,3794545453&fm=26&gp=0.jpg",            "pageNum":14,            "objURL":"http://a4.topitme.com/o013/1001319920956615b4.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bp5rtp_z&e3B4jAzdH3Fwsk74AzdH3F8b09baAzdH3Ftpj4AzdH3Fnamnbmb",            "fromURLHost":"全网资源","currentIndex":"",            "width":786,            "height":600,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"10631105430",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "3957830313,3794545453",            "os" : "1210642798,3288366257",            "simid" : "3318568277,193240169",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=1025645780,1519227186&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=1025645780,1519227186&fm=214&gp=0.jpg","FromURL":"http:\/\/www.sohu.com\/a\/28571027_189451"},{"ObjURL":"http:\/\/photocdn.sohu.com\/20150727\/mp24432691_1437961686030_2.jpeg","FromURL":"http:\/\/www.sohu.com\/a\/24432691_126357"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=1025645780,1519227186&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=1025645780,1519227186&fm=26&gp=0.jpg",            "pageNum":15,            "objURL":"http://s9.rr.itc.cn/r/wapChange/20173_23_22/a2ublw2217886268296.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3F4_z&e3Bf5i7_z&e3Bv54AzdH3FgAzdH3F9b99009laAzdH3F?4e=n&rw6pgj6=7vytg2y5g2",            "fromURLHost":"全网资源","currentIndex":"",            "width":579,            "height":435,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"46884055900",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong>曾和他拍婚纱照郎才女貌比胡歌宋承宪都般配",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1025645780,1519227186",            "os" : "1724327443,1184030155",            "simid" : "40246370,760388990",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=2046979019,1938383494&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=2046979019,1938383494&fm=214&gp=0.jpg","FromURL":"http:\/\/www.duitang.com\/people\/mblog\/389527406\/detail\/"},{"ObjURL":"http:\/\/img.mp.itc.cn\/upload\/20170222\/cfc063e6d01448889c3057a521427e65_th.jpg","FromURL":"http:\/\/www.sohu.com\/a\/126974041_418104"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=2046979019,1938383494&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=2046979019,1938383494&fm=26&gp=0.jpg",            "pageNum":16,            "objURL":"http://b-ssl.duitang.com/uploads/item/201504/29/20150429002345_MUKAs.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Fks52AzdH3F?t1=ncccd9b9m",            "fromURLHost":"全网资源","currentIndex":"",            "width":1200,            "height":756,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"143800953670",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong> ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2046979019,1938383494",            "os" : "4246541161,4278754074",            "simid" : "3383463382,386994926",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=2281814349,4248548732&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=2281814349,4248548732&fm=214&gp=0.jpg","FromURL":"http:\/\/www.mingxing.com\/news\/index\/id\/325129.html"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=2281814349,4248548732&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=2281814349,4248548732&fm=26&gp=0.jpg",            "pageNum":17,            "objURL":"http://n.sinaimg.cn/sinacn12/312/w640h472/20180512/e891-hamfahw9307168.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B4tg2xtg2_z&e3Bv54AzdH3FgjofAzdH3Ftg1jxAzdH3Ft1AzdH3Fndc8dl_z&e3Bip4s",            "fromURLHost":"全网资源","currentIndex":"",            "width":640,            "height":472,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"208089505800",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong>参加活动精修图与原图差距过大仙气",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2281814349,4248548732",            "os" : "2410147230,3625045319",            "simid" : "4176645863,504681996",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=1398471447,2508142203&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img2.imgtn.bdimg.com\/it\/u=1398471447,2508142203&fm=214&gp=0.jpg","FromURL":"http:\/\/www-beta1.duitang.com\/blog\/?id=738540563"},{"ObjURL":"http:\/\/img.mp.itc.cn\/upload\/20170307\/18bec78671764bf5b23072da3f356aeb_th.jpeg","FromURL":"http:\/\/www.sohu.com\/a\/128165626_508190"}],"adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=1398471447,2508142203&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=1398471447,2508142203&fm=26&gp=0.jpg",            "pageNum":18,            "objURL":"http://b-ssl.duitang.com/uploads/item/201704/12/20170412192340_eivNU.thumb.700_0.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Fks52AzdH3F?t1=0nbcblcnb",            "fromURLHost":"全网资源","currentIndex":"",            "width":700,            "height":1120,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"152561966150",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong> ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1398471447,2508142203",            "os" : "1649847180,3678655868",            "simid" : "3514119508,264747802",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=33885336,2040273954&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=33885336,2040273954&fm=214&gp=0.jpg","FromURL":"http:\/\/ent.ifeng.com\/a\/20181012\/43123376_0.shtml"}],"adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=33885336,2040273954&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=33885336,2040273954&fm=26&gp=0.jpg",            "pageNum":19,            "objURL":"http://p0.ifengimg.com/pmop/2018/1012/CE70BBE85283A88CA4BDC511FAC02E6A64608ED4_size16_w640_h400.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fjgp_z&e3Btujg2_z&e3Bv54AzdH3FwAzdH3Fda8b8a8dAzdH3F9n8dnn0m_a_z&e3Bfip4s",            "fromURLHost":"全网资源","currentIndex":"",            "width":640,            "height":400,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"45228256700",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"再回顾<strong>刘亦菲<\/strong>刘诗诗赵丽颖女神",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "33885336,2040273954",            "os" : "2416132518,685387141",            "simid" : "0,0",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=2782056814,1100376553&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=2782056814,1100376553&fm=214&gp=0.jpg","FromURL":"http:\/\/www.zuowenzhai.com\/yao-435244003.html"},{"ObjURL":"http:\/\/hiphotos.baidu.com\/doc\/pic\/item\/9922720e0cf3d7cabc037be1fb1fbe096a63a9b4.jpg","FromURL":"http:\/\/wenku.baidu.com\/view\/1b6d447026284b73f242336c1eb91a37f1113200.html"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=2782056814,1100376553&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=2782056814,1100376553&fm=26&gp=0.jpg",            "pageNum":20,            "objURL":"http://pic.makepolo.net/news/allimg/20161229/1482948150826631.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fgjof_z&e3B4whjr5s5_z&e3Bv54AzdH3Fmlbl900_z&e3Bip4s",            "fromURLHost":"全网资源","currentIndex":"",            "width":423,            "height":430,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"97595912040",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"2012年透视装女星性感比拼 <strong>刘亦菲<\/strong>小秀性感",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2782056814,1100376553",            "os" : "355925859,3853350777",            "simid" : "4284566501,707393483",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img2.imgtn.bdimg.com/it/u=2798245108,2917132892&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img3.imgtn.bdimg.com\/it\/u=2798245108,2917132892&fm=214&gp=0.jpg","FromURL":"http:\/\/www.hinews.cn\/news\/system\/2012\/12\/18\/015255621.shtml?wscckey=4356044759aeb36b_1514579135"},{"ObjURL":"http:\/\/photocdn.sohu.com\/20121216\/img360569874.jpg","FromURL":"http:\/\/hz.edushi.com\/bang\/info\/1-185-n1627595-p0.html?jid=1"}],"adType":"0","middleURL":"http://img2.imgtn.bdimg.com/it/u=2798245108,2917132892&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img2.imgtn.bdimg.com/it/u=2798245108,2917132892&fm=26&gp=0.jpg",            "pageNum":21,            "objURL":"http://photocdn.sohu.com/20121216/Img360569874.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3F65ss_z&e3Bf5i7_z&e3Bv54AzdH3Fda8d8d8mAzdH3Fgnmacmlbmd_z&e3Bfip4s",            "fromURLHost":"全网资源","currentIndex":"",            "width":500,            "height":355,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"171732461780",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"杨幂范冰冰章子怡<strong>刘亦菲<\/strong> 大牌明星禁播大尺度镜头遭泄露(组图)",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2798245108,2917132892",            "os" : "1697666845,141241883",            "simid" : "4216138899,633505019",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img3.imgtn.bdimg.com/it/u=2618133460,2068111905&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=2618133460,2068111905&fm=214&gp=0.jpg","FromURL":"http:\/\/www.deyu.ln.cn\/62466.html"},{"ObjURL":"http:\/\/www.unioncast.net\/images\/ozygsyzoozuwizlpfzyxcltdn5wq\/41889203\/n0340jbwsrv_ori_3.jpg","FromURL":"http:\/\/www.unioncast.net\/meiguochengrenaiqingdianying.html"}],"adType":"0","middleURL":"http://img3.imgtn.bdimg.com/it/u=2618133460,2068111905&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img3.imgtn.bdimg.com/it/u=2618133460,2068111905&fm=26&gp=0.jpg",            "pageNum":22,            "objURL":"http://vpic.video.qq.com/41889203/n0340jbwsrv_ori_3.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fe_z&e3Bqq_z&e3Bv54AzdH3FxAzdH3Fv5ej6AzdH3FTSACu0AzdH3Fian9nvfyt8t_z&e3Bip4s",            "fromURLHost":"全网资源","currentIndex":"",            "width":848,            "height":480,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"160400225260",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong>四部现代爱情电影混剪,美美美!",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2618133460,2068111905",            "os" : "1949780236,2753306935",            "simid" : "3379480151,385327274",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=733533368,635544686&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img3.imgtn.bdimg.com\/it\/u=733533368,635544686&fm=214&gp=0.jpg","FromURL":"http:\/\/www.tieba.com\/p\/3274910981"},{"ObjURL":"http:\/\/www.100dangong.com\/images\/nfwwomzomnqwg2dffzxgk5dfmfzwkltdn5wq\/ent\/2010\/9\/20\/2010092017534841037.jpg","FromURL":"http:\/\/www.100dangong.com\/usuyssh.htm"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=733533368,635544686&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=733533368,635544686&fm=26&gp=0.jpg",            "pageNum":23,            "objURL":"http://img3.cache.netease.com/ent/2010/9/20/2010092017534841037.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fjgp_z&e3B8mn_z&e3Bv54AzdH3F8aAzdH3FaldaAzdH3F80AzdH3FmH8TEFnbaaan8GVS_z&e3Bip4s",            "fromURLHost":"全网资源","currentIndex":"",            "width":504,            "height":647,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"46734820660",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"安以轩王馨可<strong>刘亦菲<\/strong>董洁成最惹眼\"侠女\"",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "733533368,635544686",            "os" : "3484263392,1410005716",            "simid" : "3418712053,140208439",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=1425076926,1100469342&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img1.imgtn.bdimg.com\/it\/u=1425076926,1100469342&fm=214&gp=0.jpg","FromURL":"http:\/\/www.sohu.com\/a\/250384111_147947"},{"ObjURL":"http:\/\/img.mp.itc.cn\/upload\/20170215\/86f67e205ec045cfaa6655000003f8fa_th.jpg","FromURL":"http:\/\/www.sohu.com\/a\/126294968_179054"}],"adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=1425076926,1100469342&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=1425076926,1100469342&fm=26&gp=0.jpg",            "pageNum":24,            "objURL":"http://b-ssl.duitang.com/uploads/item/201805/27/20180527165621_nztwo.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Fks52AzdH3F?t1=lnd8bd090",            "fromURLHost":"全网资源","currentIndex":"",            "width":800,            "height":900,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"6759794690",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"王语嫣.<strong>刘亦菲<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1425076926,1100469342",            "os" : "676836318,2041988562",            "simid" : "3363215636,467529234",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img0.imgtn.bdimg.com/it/u=2145300335,2754813503&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=2145300335,2754813503&fm=214&gp=0.jpg","FromURL":"http:\/\/www.sohu.com\/a\/20271699_136742"},{"ObjURL":"http:\/\/n1.itc.cn\/img8\/wb\/smccloud\/recom\/2015\/09\/25\/144311635929102184.jpeg","FromURL":"http:\/\/www.sohu.com\/a\/33256875_114812"}],"adType":"0","middleURL":"http://img0.imgtn.bdimg.com/it/u=2145300335,2754813503&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img0.imgtn.bdimg.com/it/u=2145300335,2754813503&fm=26&gp=0.jpg",            "pageNum":25,            "objURL":"http://b-ssl.duitang.com/uploads/item/201704/24/20170424175907_TMhsG.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Fks52AzdH3F?t1=09988ndld",            "fromURLHost":"全网资源","currentIndex":"",            "width":423,            "height":768,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"5614669830",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong>小龙女",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2145300335,2754813503",            "os" : "389187511,499047545",            "simid" : "3455254750,297576227",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=499253634,4174560257&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=499253634,4174560257&fm=214&gp=0.jpg","FromURL":"http:\/\/www-beta1.duitang.com\/blog\/?id=685465360"},{"ObjURL":"http:\/\/img.mp.itc.cn\/upload\/20170620\/552094b43a2a413bbe8a48514cdb43b7_th.jpg","FromURL":"http:\/\/www.sohu.com\/a\/150489863_167853"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=499253634,4174560257&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=499253634,4174560257&fm=26&gp=0.jpg",            "pageNum":26,            "objURL":"http://b-ssl.duitang.com/uploads/item/201612/24/20161224210537_yQ8M2.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Fks52AzdH3F?t1=0008m80a8",            "fromURLHost":"全网资源","currentIndex":"",            "width":1500,            "height":1927,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"16190655030",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"2016《芭莎珠宝》十二月刊封面:<strong>刘亦菲<\/strong>(年年都是闭年刊,天仙人设不倒",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "499253634,4174560257",            "os" : "24737823,4188055434",            "simid" : "3427034836,520310029",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img4.imgtn.bdimg.com/it/u=2741758640,103364564&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img0.imgtn.bdimg.com\/it\/u=2741758640,103364564&fm=214&gp=0.jpg","FromURL":"http:\/\/www.duitang.com\/people\/mblog\/318977911\/detail\/"},{"ObjURL":"http:\/\/img5q.duitang.com\/uploads\/item\/201503\/05\/20150305200853_seuzc.jpeg","FromURL":"http:\/\/www.chuanlian56.com\/read\/ndfjnzmwmjhlijjkuqboj7ibmqe4nzabntgwaxazlnnzbc5jzg4uynrpbwuuy29tl3qwmte5odk3ntm1mzbkngnkzjcuanbnp3npemu9odcwedu4mahkui3lukblpltppbdkvp3ml6fnvo7oi6xlpknku5nnmotlpbplrzas5yiy\/"}],"adType":"0","middleURL":"http://img4.imgtn.bdimg.com/it/u=2741758640,103364564&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img4.imgtn.bdimg.com/it/u=2741758640,103364564&fm=26&gp=0.jpg",            "pageNum":27,            "objURL":"http://img5q.duitang.com/uploads/item/201502/26/20150226090029_dM4kd.jpeg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3B17tpwg2_z&e3Bv54AzdH3Frj5rsjAzdH3F4ks52AzdH3Fn8dcl0nblAzdH3F1jpwtsAzdH3F",            "fromURLHost":"全网资源","currentIndex":"",            "width":580,            "height":870,            "type":"jpeg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"70396916040",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong>",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "2741758640,103364564",            "os" : "4103717532,4006060219",            "simid" : "3453168824,419702623",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img1.imgtn.bdimg.com/it/u=4043049613,2009590504&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img3.imgtn.bdimg.com\/it\/u=4043049613,2009590504&fm=214&gp=0.jpg","FromURL":"http:\/\/photo.blog.sina.com.cn\/photo\/1352422750\/509c555et7f9cf6018ea0"},{"ObjURL":"http:\/\/img.hc360.com\/bm\/info\/images\/200904\/200904031114364752.jpg","FromURL":"http:\/\/info.bm.hc360.com\/2009\/04\/06091688609-8.shtml"}],"adType":"0","middleURL":"http://img1.imgtn.bdimg.com/it/u=4043049613,2009590504&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img1.imgtn.bdimg.com/it/u=4043049613,2009590504&fm=26&gp=0.jpg",            "pageNum":28,            "objURL":"http://img.sdchina.com/UsersFiles/news/2011/01/11/201101111059201101111059473865947386.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fooo_z&e3Bf1vitgw_z&e3Bv54AzdH3Fi57fjAzdH3Ffi5oAzdH3Fb8bbn_z&e3Bip4s",            "fromURLHost":"全网资源","currentIndex":"",            "width":400,            "height":381,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"16425225740",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"美貌来自遗传 看神仙姐姐<strong>刘亦菲<\/strong>的豪宅美丽生活(图)",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "4043049613,2009590504",            "os" : "1262614630,259388075",            "simid" : "3362606128,259777716",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{"thumbURL":"http://img5.imgtn.bdimg.com/it/u=1104782729,3040552578&fm=26&gp=0.jpg","replaceUrl": [{"ObjURL":"http:\/\/img4.imgtn.bdimg.com\/it\/u=1104782729,3040552578&fm=214&gp=0.jpg","FromURL":"http:\/\/zhuxian.17173.com\/content\/2007-04-02\/20070402024721778,15.shtml"},{"ObjURL":"http:\/\/www.wuhuzhongao.com\/images\/nfwwcz3fomxdcnzrg4zs4y3pnu\/zhuxian\/2007\/04\/04\/20070404024510077.jpg","FromURL":"http:\/\/www.wuhuzhongao.com\/liuyifeijiehunzhao.htm"}],"adType":"0","middleURL":"http://img5.imgtn.bdimg.com/it/u=1104782729,3040552578&fm=26&gp=0.jpg",            "largeTnImageUrl":"",            "hasLarge" :0,            "hoverURL":"http://img5.imgtn.bdimg.com/it/u=1104782729,3040552578&fm=26&gp=0.jpg",            "pageNum":29,            "objURL":"http://images.17173.com/zhuxian/2007/04/04/20070404024510077.jpg",            "fromURL":"ippr_z2C$qAzdH3FAzdH3Fzi7xtwg_z&e3B8080n_z&e3Bv54AzdH3Fv5gpjgpAzdH3Fdaa0-a9-a9AzdH3Fdaa0a9a9ad98a00la%dCd8_z&e3Bfip4s",            "fromURLHost":"全网资源","currentIndex":"",            "width":550,            "height":387,            "type":"jpg",            "is_gif":0,            "filesize":"",            "bdSrcType":"0",            "di":"31524607400",            "is":"0,0",            "partnerId":0,            "bdSetImgNum":0,            "spn":0,            "bdImgnewsDate":"1970-01-01 08:00",            "fromPageTitle":"<strong>刘亦菲<\/strong> ",            "bdSourceName":"",            "bdFromPageTitlePrefix":"",            "isAspDianjing":0,"token":"",            "imgType" : "",            "adid":"0",            "pi":"0",            "cs" : "1104782729,3040552578",            "os" : "1702472184,1027599653",            "simid" : "4186706129,517069289",            "source_type":"",            "personalized":"0",            "base64": '',            "adPicId": "0"        },{}]}
+);
+    app.setData('fcadData', {"fcData":[],"fcMidData":[],"fcBtData":[],"fcType":"","adType":0,"fcAdDatasLen":"0"}
+);
+    app.setData('xgMidData', {"xgMidData":[],"xgMidDataLen":"0"});
+    app.setData('rpData', {"data": []});
+    app.setData('fsData', {    "result" :[],    "link" : ""});
+    app.setData('browserRsData', {    "Status" : "0",    "query" : "",    "desc" : "",    "id" : "",    "photos" :[]}
+);
+    app.setData('rsQuery', [["刘亦菲刘诗诗", "%C1%F5%D2%E0%B7%C6%C1%F5%CA%AB%CA%AB", "0", "0"],["刘亦菲吧", "%C1%F5%D2%E0%B7%C6%B0%C9", "0", "0"],["吴亦凡刘亦菲", "%CE%E2%D2%E0%B7%B2%C1%F5%D2%E0%B7%C6", "0", "0"],["刘亦菲生日", "%C1%F5%D2%E0%B7%C6%C9%FA%C8%D5", "0", "0"],["刘亦菲井柏然", "%C1%F5%D2%E0%B7%C6%BE%AE%B0%D8%C8%BB", "0", "0"],["刘亦菲眼睛", "%C1%F5%D2%E0%B7%C6%D1%DB%BE%A6", "0", "0"],["刘亦菲直播", "%C1%F5%D2%E0%B7%C6%D6%B1%B2%A5", "0", "0"],["刘亦菲鼻子", "%C1%F5%D2%E0%B7%C6%B1%C7%D7%D3", "0", "0"],["刘亦菲短发", "%C1%F5%D2%E0%B7%C6%B6%CC%B7%A2", "0", "0"],["刘亦菲白浅", "%C1%F5%D2%E0%B7%C6%B0%D7%C7%B3", "0", "0"],["刘亦菲发型", "%C1%F5%D2%E0%B7%C6%B7%A2%D0%CD", "0", "0"],["刘亦菲虞姬", "%C1%F5%D2%E0%B7%C6%D3%DD%BC%A7", "0", "0"],["刘亦菲头像", "%C1%F5%D2%E0%B7%C6%CD%B7%CF%F1", "0", "0"],["刘亦菲素描", "%C1%F5%D2%E0%B7%C6%CB%D8%C3%E8", "0", "0"],["刘亦菲电视剧", "%C1%F5%D2%E0%B7%C6%B5%E7%CA%D3%BE%E7", "0", "0"],["刘亦菲花木兰", "%C1%F5%D2%E0%B7%C6%BB%A8%C4%BE%C0%BC", "0", "0"],["刘亦菲双眼皮", "%C1%F5%D2%E0%B7%C6%CB%AB%D1%DB%C6%A4", "0", "0"],["刘亦菲悼念粉丝", "%C1%F5%D2%E0%B7%C6%B5%BF%C4%EE%B7%DB%CB%BF", "0", "0"],["金粉世家刘亦菲", "%BD%F0%B7%DB%CA%C0%BC%D2%C1%F5%D2%E0%B7%C6", "0", "0"],["天龙八部刘亦菲", "%CC%EC%C1%FA%B0%CB%B2%BF%C1%F5%D2%E0%B7%C6", "0", "0"],["刘亦菲代言的手表", "%C1%F5%D2%E0%B7%C6%B4%FA%D1%D4%B5%C4%CA%D6%B1%ED", "0", "0"],["神雕侠侣刘亦菲", "%C9%F1%B5%F1%CF%C0%C2%C2%C1%F5%D2%E0%B7%C6", "0", "0"],["刘亦菲花木兰剧照", "%C1%F5%D2%E0%B7%C6%BB%A8%C4%BE%C0%BC%BE%E7%D5%D5", "0", "0"],["刘亦菲金鹰女神2017", "%C1%F5%D2%E0%B7%C6%BD%F0%D3%A5%C5%AE%C9%F12017", "0", "0"],["刘亦菲快乐大本营", "%C1%F5%D2%E0%B7%C6%BF%EC%C0%D6%B4%F3%B1%BE%D3%AA", "0", "0"],["刘亦菲古装高清壁纸", "%C1%F5%D2%E0%B7%C6%B9%C5%D7%B0%B8%DF%C7%E5%B1%DA%D6%BD", "0", "0"],["刘亦菲代言矿泉水", "%C1%F5%D2%E0%B7%C6%B4%FA%D1%D4%BF%F3%C8%AA%CB%AE", "0", "0"],["刘亦菲电脑桌面壁纸", "%C1%F5%D2%E0%B7%C6%B5%E7%C4%D4%D7%C0%C3%E6%B1%DA%D6%BD", "0", "0"],["冯绍峰发文力挺刘亦菲", "%B7%EB%C9%DC%B7%E5%B7%A2%CE%C4%C1%A6%CD%A6%C1%F5%D2%E0%B7%C6", "0", "0"],["刘亦菲代言的网游", "%C1%F5%D2%E0%B7%C6%B4%FA%D1%D4%B5%C4%CD%F8%D3%CE", "0", "0"]]);
+    app.setData('hotWords', [{            "query": "重庆4.8级地震",            "flag": "重庆4.8级地震",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E9%87%8D%E5%BA%864.8%E7%BA%A7%E5%9C%B0%E9%9C%87",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "内蒙古现罕见日柱",            "flag": "内蒙古现罕见日柱",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E5%86%85%E8%92%99%E5%8F%A4%E7%8E%B0%E7%BD%95%E8%A7%81%E6%97%A5%E6%9F%B1",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "女歌手本兮22岁逝世",            "flag": "女歌手本兮22岁逝世",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E5%A5%B3%E6%AD%8C%E6%89%8B%E6%9C%AC%E5%85%AE22%E5%B2%81%E9%80%9D%E4%B8%96",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "蒋劲夫托举佟丽娅",            "flag": "蒋劲夫托举佟丽娅",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E8%92%8B%E5%8A%B2%E5%A4%AB%E6%89%98%E4%B8%BE%E4%BD%9F%E4%B8%BD%E5%A8%85",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "打工钱被咬成碎片",            "flag": "打工钱被咬成碎片",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%89%93%E5%B7%A5%E9%92%B1%E8%A2%AB%E5%92%AC%E6%88%90%E7%A2%8E%E7%89%87",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "村民发现奇石似飞碟",            "flag": "村民发现奇石似飞碟",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%9D%91%E6%B0%91%E5%8F%91%E7%8E%B0%E5%A5%87%E7%9F%B3%E4%BC%BC%E9%A3%9E%E7%A2%9F",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "环卫夫妻身高不足一米四",            "flag": "环卫夫妻身高不足一米四",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E7%8E%AF%E5%8D%AB%E5%A4%AB%E5%A6%BB%E8%BA%AB%E9%AB%98%E4%B8%8D%E8%B6%B3%E4%B8%80%E7%B1%B3%E5%9B%9B",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "沙滩现巨大黑色怪物",            "flag": "沙滩现巨大黑色怪物",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E6%B2%99%E6%BB%A9%E7%8E%B0%E5%B7%A8%E5%A4%A7%E9%BB%91%E8%89%B2%E6%80%AA%E7%89%A9",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "黄子韬搂何炅",            "flag": "黄子韬搂何炅",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=%E9%BB%84%E5%AD%90%E9%9F%AC%E6%90%82%E4%BD%95%E7%82%85",            "hot": "0",            "fromurl": "",            "photos": []        },{            "query": "2016nba圣诞大战",            "flag": "2016nba圣诞大战",            "url": "http:\/\/image.baidu.com\/search\/index?tn=baiduimage&ipn=r&ct=201326592&cl=2&lm=-1&st=-1&fm=result&fr=sugrec&sf=1&fmq=1452955267929_R&pv=&ic=0&nc=1&z=&se=1&showtab=0&fb=0&width=&height=&face=0&istype=2&ie=utf-8&word=2016nba%E5%9C%A3%E8%AF%9E%E5%A4%A7%E6%88%98",            "hot": "0",            "fromurl": "",            "photos": []        }]);
+        
+    app.init();
+    app.run();
+    });
+    }();
+!function(){    require.async(['common:widget/ui/monitorRequest/monitorRequest'],function(monitorRequest){
+	var userid = "";
+	var q = "%E5%88%98%E4%BA%A6%E8%8F%B2";
+	var tn = "result";
+	var host = "//imgstat.baidu.com/4.gif";
+	var hostSweb = "//image.baidu.com/pv/pv2.gif";
+    var rsw = "";
+    if(location.href !== document.referrer && document.referrer != ""){
+        rsw = "&rs=";
+    }
+    else{
+        rsw = '';
+    }
+    var samplekey = window.samplekey || '';
+    var img = window["__log__" + (new Date()).getTime()*Math.random()] = document.createElement('img');
+    monitorRequest( host + "?logid=11742685561238611231&ie=utf-8&q="+ q +"&userid=" + userid + "&samplekey=" + encodeURIComponent(samplekey) + "&event_type=pv&tn=" + tn + "&tpl=result_pullstar.page&fr=" + rsw);
+    var imgSweb = window["__log__" + (new Date()).getTime()*Math.random()] = document.createElement('img');
+    imgSweb.src = hostSweb + "?ie=utf-8&q="+ q +"&userid=" + userid + "&samplekey=" + encodeURIComponent(samplekey) + "&event_type=pv&tn=" + tn + "&tpl=star&fr=" + rsw + '&' + new Date() * Math.random();
+    });
+}();
+!function(){    require.async(["common:widget/ui/fmCheck/fmCheck"],function(fmCheck){
+        fmCheck.init();
+    });
+}();
+!function(){require.async(['common:widget/ui/base/base'], function($) {
+    var userFrom = '';
+
+    var elem = document.createElement('a');
+    elem.href = document.referrer;
+    var hostname = elem['hostname'];
+    var urlfr = '';
+    var chenjin = '';
+    var urlword = '%E5%88%98%E4%BA%A6%E8%8F%B2';
+
+    if (hostname !== 'image.baidu.com') {
+        if (urlfr) {
+            userFrom += urlfr;
+            if (chenjin === '1') {
+                userFrom += 'chenjin1';
+            } else if (chenjin === '0') {
+                var wordList = ["%E7%BE%8E%E5%A5%B3%E5%9B%BE%E7%89%87",
+                    "%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8",
+                    "%E6%89%8B%E6%9C%BA%E5%A3%81%E7%BA%B8%E5%9B%BE%E7%89%87",
+                    "%E5%A4%B4%E5%83%8F",
+                    "%E5%A4%B4%E5%83%8F%E5%9B%BE%E7%89%87"];
+                if (wordList.indexOf(urlword) >= 0) {
+                    userFrom += 'chenjin0';
+                }
+            }
+        } else {
+            userFrom = hostname;
+        }
+    } else {
+        userFrom = $.cookie('userFrom') || '';
+    }
+
+    if (userFrom.length > 0) {
+        var date = new Date();
+        date.setTime(date.getTime() + (10 * 60 * 1000));
+        $.cookie('userFrom', userFrom, {path: '/', expires: date, domain: '.baidu.com'});
+    } else {
+        $.cookie('userFrom', null, {path: '/', domain: '.baidu.com'});
+    }
+});
+}();
+!function(){            require.async(["common:widget/ui/durationStat/durationStat"],function(durationStat){
+            durationStat.heartStart({
+                pageId: 2 - 0,
+                sid: '58e2831e71d62dfca5534e71e6e09783c66b82a9',
+                cs: '',
+                word: '刘亦菲'
+            });
+        });
+    }();</script>   </html> <!--24764536460626424586030922-->
+<script> var _trace_page_logid = 2476453646; </script>

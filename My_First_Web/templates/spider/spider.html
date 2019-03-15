@@ -1,0 +1,82 @@
+{% extends 'index.html' %}
+{% load tags %}
+
+{% block context %}
+    <div class="row text-center">
+        <form class="" method="get">
+            <input type="text" name="search"  class="form-group" style="color: #080808">
+            <input type="submit" class="btn btn-info" value="Search">
+        </form>
+    </div>
+    <div class="row">
+        {% if results %}
+            <div class="row" >
+                <div class="row" style="width: 33%;float: left;" id="search_context1">
+                {% for list in results %}
+                {% if forloop.counter|layout:"3,1" %}
+                    <div style="padding: 1px" >
+                        <a href="{{ list }}" target="_blank"><img src="{{ list }}" style="width: 100%;"></a>
+                    </div>
+                {% endif %}
+                {% endfor %}
+                </div>
+                <div class="row" style="width: 33%;float: left;margin-left: 15px;" id="search_context2">
+                {% for list in results %}
+                    {% if forloop.counter|layout:"3,2" %}
+                        <div style="padding: 1px" >
+                            <a href="{{ list }}" target="_blank"><img src="{{ list }}" style="width: 100%;"></a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+                <div class="row" style="width: 33%;float: left;margin-left: 15px;" id="search_context3">
+                {% for list in results %}
+                    {% if forloop.counter|layout:"3,0" %}
+                        <div style="padding: 1px"  >
+                            <a href="{{ list }}" target="_blank"><img src="{{ list }}" style="width: 100%"></a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+            <div class="row text-center" style="cursor: pointer;">
+                <a onclick="more_context()">加载更多.......</a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+{% block bottom-js %}
+<script>
+    var page = 1;
+    var reg = new RegExp("=(.*)");
+
+    function more_context() {
+        page += 1;
+        search_context = decodeURI(document.location.search).match(reg)[1]
+        console.log(page,search_context);
+        $.ajax({
+            type:"post",
+            url:"/spider/",
+            timeout: 1000,
+            data:{search_key:search_context,pages:page,csrfmiddlewaretoken:'{{ csrf_token  }}'},
+            success:function (data) {
+
+                var data = JSON.parse(data);
+                for (var i=0;i<data.length;i++) {
+                    if(i%3 == 1){
+                        ele = '<div style="style="padding: 1px""><a href="' + data[i] + '" target="_blank"><img src="' + data[i] + '" style="width: 100%"></a> </div>';
+                        $("#search_context1").append(ele);
+                    }else if(i%3 == 2){
+                        ele = '<div style="style="padding: 1px""><a href="' + data[i] + '" target="_blank"><img src="' + data[i] + '" style="width: 100%"></a> </div>';
+                        $("#search_context2").append(ele);
+                    }else{
+                        ele = '<div style="style="padding: 1px""><a href="' + data[i] + '" target="_blank"><img src="' + data[i] + '" style="width: 100%"></a> </div>';
+                        $("#search_context3").append(ele);
+                    };
+
+                }
+            }
+        })
+    }
+</script>
+{% endblock %}

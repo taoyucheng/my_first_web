@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% load tags %}
+
+{% block context %}
+    {% if request.session.is_login %}
+        <div class="row" >
+            <h3>My Log</h3>
+
+            <div class="row">
+                <h4>{{ obj.log_head }}</h4>
+                {{ obj.log_context|safe }}
+            </div>
+
+        </div>
+    {% else %}
+        <div class="row" style="height: 400px;"> 您尚未登陆</div>
+    {% endif %}
+
+
+{% endblock %}

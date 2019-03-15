@@ -1,0 +1,65 @@
+{% extends 'index.html' %}
+{% load tags %}
+
+
+{% block context %}
+    {% if request.session.is_login %}
+        <div >
+            <div class="row">
+                <div class="panel panel-info">
+                      <div class="panel-heading" style="height: 40px">
+                          <div style="display: inline">
+                              <h3 class="panel-title pull-left"  >{{ request.session.user_name }}的网盘</h3>
+                          </div>
+                          <div style="display: inline">
+                              <a  href="/cloud_disk/add/" class="panel-title pull-right" >上传新文件</a>
+                          </div>
+
+
+                      </div>
+                    <div class="panel-body" style="color:#28a4c9">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>file name</th>
+                                    <th>file size</th>
+                                    <th>create time</th>
+                                    <th>download</th>
+                                    <th>delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for file in user_files %}
+                                {% build_file_obj file %}
+                            {% endfor %}
+{#                                <tr>#}
+{#                                    <td>change</td>#}
+{#                                </tr>#}
+
+                            </tbody>
+                        </table>
+                        <nav>
+                            <ul class="pagination">
+                                {% if user_files.has_previous %}
+                                    <li class=""><a href="?page={{ user_files.previous_page_number }}">上页</a></li>
+                                {% endif %}
+                                {% build_paginator user_files %}
+                                {% if user_files.has_next %}
+                                    <li class=""><a href="?page={{ user_files.next_page_number }}">下页</a></li>
+                                {% endif %}
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    {% else %}
+        <div class="row" style="height: 400px;"> 您尚未登陆</div>
+    {% endif %}
+{% endblock %}
+{% block bottom-js %}
+
+{% endblock %}

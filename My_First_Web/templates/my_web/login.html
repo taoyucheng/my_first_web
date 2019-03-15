@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block container-out %}
+    <div class="container" style="color: white;margin-bottom: 230px" >
+        <div class="col-md-4 col-md-offset-4">
+          <form class='form-login' action="/login/" method="post">{% csrf_token %}
+
+              <h2 class="text-center">欢迎登录</h2>
+              <span style="color: red">{{ message }}</span>
+              <div class="form-group">
+                <label for="id_username">电话号码:</label>
+                <input type="text" name='phone' class="form-control" id="id_username" placeholder="Username" autofocus required>
+              </div>
+              <div class="form-group">
+                <label for="id_password">密码：</label>
+                <input type="password" name='password' class="form-control" id="id_password" placeholder="Password" required>
+              </div>
+
+              <button type="reset" class="btn btn-default pull-left">重置</button>
+              <button type="submit" class="btn btn-primary pull-right">提交</button>
+          </form>
+        </div>
+    </div> <!-- /container -->
+{% endblock %}
+{% block bottom-js %}
+
+{% endblock %}

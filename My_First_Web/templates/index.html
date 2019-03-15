@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block container %}
+<div class="mean">
+    <ul class="nav nav-tabs">
+       <li id="nav1"><a href="/" class="active"><span>Home</span></a></li>
+        <li class="drop-down">
+            <a href="/blogs/" >
+              Blogs <span class="caret" ></span>
+            </a>
+               <div class="drop-mean">
+                <a onclick="blog('https://www.csdn.net/')" href="javascript:void(0);">CSDN</a>
+                <a onclick="blog('https://www.baidu.com/')"  href="javascript:void(0);">Baidu</a>
+             </div>
+       </li>
+       <li id="nav3"><a href="/log/"><span>Log</span></a></li>
+       <li id="nav4"><a href="/wechat/"><span>Wechat</span></a></li>
+       <li id="nav5"><a href="/cloud_disk/"><span>Cloud Disk</span></a></li>
+       <li id="nav6"><a href="/spider/"><span>Spider</span></a></li>
+     </ul>
+</div>
+<div class="context" style="color: white;">
+    {% block context %}
+        <div class="context-container">
+            <div class="context-left">left</div>
+            <div class="context-right">right</div>
+        </div>
+        <input class="btn btn-success" value="AJAX" name="AJAX" type="submit" id="test">
+    {% endblock %}
+</div>
+
+{% endblock %}
+{% block bottom-js %}
+<script>
+    $("#test").click(function () {
+        $.ajax({
+            type:"post",
+            url:"http://127.0.0.1:8000/",
+            data:{username:"taoyucheng",password:"taoyucheng"},
+            success:function (data) {
+                alert("succsess:submit data to ajax")
+            }
+        });
+    })
+</script>
+{% endblock %}

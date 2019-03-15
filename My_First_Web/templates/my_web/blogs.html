@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% block context %}
+    <div class="context" style="color: white;">
+        <iframe src="https://www.csdn.net/" ></iframe>
+    </div>
+{% endblock %}
+{% block bottom-js %}
+    <script>
+{#    $(function(){#}
+{#                blogs_display();#}
+{#            })#}
+
+    function blog(str){
+        $("iframe").attr("src",str);
+    }
+{#    function blogs_display(){#}
+{#        $('span[class="caret"]').attr("style","display: inline-block;");#}
+{#        $('div[class="drop-mean"]').attr("style","display: none;");#}
+{#    }#}
+  </script>
+{% endblock %}

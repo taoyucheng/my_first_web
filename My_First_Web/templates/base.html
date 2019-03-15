@@ -1,0 +1,101 @@
+{% load tags %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>My_First_Web</title>
+        <link type="text/css" rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap.css">
+        <link type="text/css" rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap-theme.css">
+        <link type="text/css" rel="stylesheet" href="/static/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css">
+        <link type="text/css" rel="stylesheet" href="/static/css/main.css">
+        <link type="text/css" rel="stylesheet" href="/static/css/weather.css">
+        <script type="text/javascript" src="/static/bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+        <script type="text/javascript" src="/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="/static/bootstrap-3.3.7-dist/js/npm.js"></script>
+        <script type="text/javascript" src="/static/js/jquery.js"></script>
+        <script type="text/javascript" src="/static/js/echarts.min.js"></script>
+        <script type="text/javascript" src="/static/js/main.min.js"></script>
+        <script type="text/javascript" src="/static/plugins/kindeditor/kindeditor-all.js"></script>
+    </head>
+    <body>
+        <div class="container-content">
+            <div class="header">
+                <div class="pull-left">
+                    <div>
+                        {% build_weather as weather %}
+                        <p style="float: left;"><span class="png_wea {{ weather.weather_attr }}"></span></p>
+                        <p style="padding: 5px;color: white;">{{ weather.weather }}{{ weather.tempratureHigh }} / {{ weather.tempratureLow}}</p>
+                        <!--<div id="time"><div>-->
+                        <div id="time" class="row" style="color: #ADADAD;padding-left: 10px;padding-top: 0px;"></div>
+                    </div>
+                </div>
+                <div class="pull-right">
+               {% if request.session.is_login %}
+                        <div class="dropdown">
+                          <!--<button class="dropbtn">taoyucheng</button>-->
+                          <div class="dropdown-mean"><a href="/">{{ request.session.user_name }} </a>
+                              <span class="caret"></span>
+                          </div>
+                          <div class="dropdown-content">
+                            <a href="/changemsg/{{ request.session.id }}/">修改信息</a>
+                            <a href="/changepwd/{{ request.session.id }}/">修改密码</a>
+                            <a href="/logout/">注销</a>
+                          </div>
+                        </div>
+                    {% else %}
+                        <div ><a href="/login/">[登陆]</a>
+                              <a href="/register/">[注册]</a>
+                        </div>
+                {% endif %}
+
+                </div>
+            </div>
+        {% block container %}
+
+        {% endblock %}
+
+        </div>
+        {% block container-out %}
+
+        {% endblock %}
+        <div class="footer">
+            <div class="main">
+                <div id = "text-footer"> Copyright 2011 <b>taoyucheng</b> All Rights Reserved </div>
+            </div>
+        </div>
+        {% block bottom-js %}
+
+        {% endblock %}
+        <script type="text/javascript">
+
+
+            $(function(){
+                time();
+                setInterval("time()",1000);
+            })
+
+            function time(){
+                var vWeek,vWeek_s,vWeek_Day;
+                vWeek = ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+                var date =new Date();
+                year = date.getFullYear();
+                m = date.getMonth()+1
+                month = m>10?m:"0"+m;
+                d = date.getDate();
+                day = d>10?d:"0"+d;
+                h = date.getHours();
+                hours = h>10?h:"0"+h;
+                min = date.getMinutes();
+                minutes = min>10?min:"0"+min;
+                s = date.getSeconds();
+                seconds = s>10?s:"0"+s;
+                vWeek_s = date.getDay();
+//                document.getElementById("time").innerHTML = year+"/"+month+"/"+day+"\t"+hours+":"+minutes+":"+seconds+"\t"+vWeek[vWeek_s];
+                $("#time").text(year+"/"+month+"/"+day+"\t"+hours+":"+minutes+":"+seconds+"\t"+vWeek[vWeek_s]);
+            }
+
+
+        </script>
+    </body>
+</html>

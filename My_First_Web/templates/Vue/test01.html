@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style>
+            *{
+                padding:0px;
+                height:0px;
+            }
+            .cover{
+                width:100%;
+                height:100%;
+                background-color:black;
+                position:absolute;
+                top:0px;
+                left:0px;
+                opacity: 0.1;
+                display:none;
+            }
+            .form{
+                height:294px;
+                width:424px;
+                background-color: white;
+                border: 1px solid lightgray;
+                margin-left: -140px;
+                margin-top: -140px;
+                display: none;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+            }
+            .form .header{
+                height: 60px;
+                background-color: #F7F7F7;
+                line-height: 48px;
+                text-indent: 0.5em;
+            }
+            .form .header span{
+                color:#666666;
+                font-weight:bold;
+            }
+            .header a{
+                position:relative;
+                left:321px;
+                text-decoration: none;
+                color: black;
+                font-weight: 400;
+                font-size: 30px;
+                top: 4px;
+            }
+            .body{
+                height: 173px;
+                padding-top: 35px;
+            }
+            .body div{
+                height: 36px;
+                line-height: 36px;
+                text-indent: 10px;
+                margin-bottom: 35px;
+            }
+            .body div input{
+                height: 36px;
+                width: 300px;
+            }
+            .add{
+                text-align: center;
+            }
+            #btnAdd{
+                height: 36px;
+                width: 170px;
+            }
+            .original{
+                height: 234px;
+                width: 369px;
+                margin: 200px auto;
+            }
+            .original input{
+                height: 32px;
+                width: 112px;
+                font-weight: bold;
+                line-height: 32px;
+                font-size: 17px;
+            }
+            table{
+                width: 100%;
+                border-collapse: collapse;
+            }
+            thead{
+                height: 50px;
+                background-color: #0099CC;
+                color: white;
+            }
+            tr{
+                height: 42px;
+                line-height: 42px;
+            }
+            th,td{
+                border: 1px solid #D0D0D0;
+                text-align: center;
+            }
+            tbody{
+                color: #404060;
+                font-size: 10px;
+                background-color: #F0F0F0;`
+            }
+            .get{
+                color: #000000;
+            }
+        </style>
+        <script src="/static/js/jquery.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                $("#btnAddData").on("click",function(){
+                    $(".cover").show();
+                    $(".form").show();
+                });
+                $(".header a").on("click",function(){
+                    $(".cover").hide();
+                    $(".form").hide();
+                });
+                $("#btnAdd").on("click",function(){
+                    var tr=$("<tr></tr>");
+                    var item=[];
+                    item[0] = $(".course input").val();
+                    item[1] = $(".academy input").val();
+                    item[2] = "GET";
+                    for(var i=0;i<3;i++){
+                        var td=$("<td></td>");
+                        td.text(item[i]);
+                        tr.append(td);
+                        if(i==2){
+                            td.addClass("get");
+                        }
+                    }
+                    $("tbody").append(tr);
+                });
+                $("tbody").on("click",".get",function(){
+                    $(this).parent().remove();
+                });
+            });
+        </script>
+    </head>
+    <body class="box">
+        <div class="cover"></div>
+
+        <div class="form">
+            <div class="header">
+                <span>添加数据</span>
+                <a href="javascript:void(0)">X</a>
+            </div>
+            <div class="body">
+                <div class="course">
+                    <span>课程名字：</span><input type="text" id="" placeholder="请输入课程名称" />
+                 </div>
+                <div class="academy">
+                    <span>所属学院：</span><input type="text" id="" value="传智播客-前端与移动开发学院" />
+                 </div>
+                <div class="add">
+                     <input type="button" id="btnAdd" value="添加" />
+                 </div>
+            </div>
+        </div>
+        <div class="original">
+            <input type="button" id="btnAddData" value="添加数据" />
+            <table cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th>课程名称</th>
+                        <th>所属学院</th>
+                        <th>已学会</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>JavaScript</td>
+                        <td>传智播客-前端与移动开发学院</td>
+                        <td class="get">GET</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

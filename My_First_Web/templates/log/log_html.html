@@ -1,0 +1,66 @@
+{% extends 'index.html' %}
+{% load tags %}
+
+{% block context %}
+    {% if request.session.is_login %}
+        <div class="row">
+            <h3>My Log</h3>
+            {% for obj in objs %}
+            <div class="row">
+                <h4><a href="/log/{{ obj.id }}/">{{ obj.log_head }}</a></h4>
+                <p >摘要：{% build_log_context obj.log_context %}......<a href="/log/{{ obj.id }}/">阅读更多</a></p>
+                <small class="pull-right">posted@{{ obj.create_time }}</small>
+            </div>
+            {% endfor %}
+            <nav>
+                <ul class="pagination">
+                    {% if objs.has_previous %}
+                        <li class=""><a href="?page={{ objs.previous_page_number }}">上页</a></li>
+                    {% endif %}
+                    {% build_paginator objs %}
+{#                    {% for page_number in objs.paginator.page_range %}#}
+{##}
+{#                        <li class=""><a href="?page={{ page_number }}">{{ page_number }}</a></li>#}
+{#                    {% endfor %}#}
+                    {% if objs.has_next %}
+                        <li class=""><a href="?page={{ objs.next_page_number }}">下页</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+        <hr>
+        <div class="row">
+            <form method="post" action="/log/">{% csrf_token %}
+                <label class="form-group">标题：</label>
+                <input type="text" name="head" placeholder="标题" class="form-group" style="color: #080808">
+                <textarea class="form-group" name="content" id="content"></textarea>
+                <input class="btn btn-info pull-left" type="submit" value="提交">
+            </form>
+        </div>
+
+    {% else %}
+        <div class="row" style="height: 400px;"> 您尚未登陆</div>
+    {% endif %}
+
+
+{% endblock %}
+{% block bottom-js %}
+<script type="text/javascript">
+   $(function () {
+            KindEditor.create('textarea[name="content"]',{
+                width:'100%',
+                height:'300px',
+                allowImageUpload: true,
+                allowImageRemote: true,
+                allowFlashUpload: false,
+                allowFileManager:true,
+                extraFileUploadParams : {
+                        csrfmiddlewaretoken : "{{ csrf_token }}"
+                },
+                filePostName: 'fafafa',
+            })
+
+        })
+
+</script>
+{% endblock %}
